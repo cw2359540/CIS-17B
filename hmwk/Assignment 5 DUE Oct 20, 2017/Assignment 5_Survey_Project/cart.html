@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Cheryllynn Walsh Survey_Project Cart</title>
+	<link href="layout.css" type="text/css" rel="stylesheet">
+	
+<script type="text/javascript" src="guest-functions.js"></script>
+
+<style>
+ 	body {background-color: #f2f2f2;}
+</style>
+
+<script>
+var products=[];
+products["q1"] = {name: "Peyote Fan Earrings", description : "Earrings", price : "80.00"};
+products["q2"] = {name: "Blue and Bringht pink Hugs and Kisses ring", description : "Rings", price : "25.00"};
+products["q3"] = {name: "Crystal Lace", description : "Necklace", price : "120.00"};
+products["q4"] = {name: "Bracelet Monaco", description : "Bracelet", price : "60.00"};
+
+// currently we would need to search through the array
+// does he want it like this however other things
+// we can change thing to make our life easier can wich picutre or however ok
+</script>
+
+<script>
+/************Add out************/
+function out( x ){ document.write( x ); } // cause that is 2 much typing
+function showCart()
+{
+// so know we need to print out the cart
+// lets get teh cart
+if( localStorage.getItem( 'cart' ) !== null ){
+	//print the cart	
+	var cart = JSON.parse( localStorage.getItem("cart") );
+	//alert(cart['q1'] + '--' + cart['q2'] + '--' + cart['q3'] + '--' + cart['q4']);
+	var overall_total_price = 0;
+	document.write('<tr><th>Quantity</th><th>Update</th><th>Description</th><th>Price</th><th>Delete</th>');
+	for( var item in cart ){
+		// So now we can easly get the names and prices without having to search through the whole array
+		var quantity = cart[item];
+		var price_per_unit = products[item].price;
+		var total_price = quantity * price_per_unit;   // Total price of one particular item
+		overall_total_price += total_price;   //Add total_price to overall_total_price while it is still a number
+		total_price = total_price.toFixed(2);  //This turns total_price from a number into a string
+		while( total_price.length < 15 ) { //Right-align total_price
+		  total_price = " " + total_price;
+		}
+
+		// So lets make it into a table
+		out( "<tr><td>" );// Already have total price so just need to add the unit price
+		out( "<input name='" + item + "' value='" + cart[item] + "' style='width:30px;'/></td><td>" + "<input type='image' src='button_update_cart.gif' onclick=\"updateItem('" + item + "')\"></td><td>" + products[item]["name"] + "</td><td>$" + total_price + "</td><td><input type='image' src='small_delete.gif' onclick=\"emptyItem('" + item + "')\">"); // to get the number stored 
+		out( "</td></tr>" );
+	}
+	
+	overall_total_price = overall_total_price.toFixed(2); //Turn overall_total_price into a string with 2 decimals
+		document.write('<tr><td colspan="4" style="border-width:0px; text-align: right;"><strong>Sub-Total: $</strong><strong>' + overall_total_price + '</strong></td></tr>');
+	}else{
+		document.write('<tr><td>No Items In Cart</td></tr>');
+}
+	
+// Should display 1 row of cart information for each product that is in the cart.
+// Should at least the quantity, short description of product, and price. Other info optional.
+// This information is being written into the page in the "cart table" area.
+}
+
+/***********Add checkout***********/
+function checkout()
+{
+	// Do any other processing before switching to checkout page here.
+	// Save cart.
+	var products_string = "";  //Initialize empty string
+	if( localStorage.getItem( 'cart' ) !== null ){
+		var cart = JSON.parse( localStorage.getItem("cart") );
+		var total_without_tax = 0;
+		for( var item in cart ){  //Loop through items in cart; 1 row per item
+			var quantity = cart[item];
+			var price_per_unit = products[item]["price"];
+			var total_price = quantity * price_per_unit;
+            total_without_tax += total_price;
+			total_price = total_price.toFixed(2);  //This line converts total_price to a string
+	alert( "quantity="+quantity+"  price_per_unit="+price_per_unit);
+			   products_string += "<tr><td>" + cart[item] + "</td><td>" + products[item]["name"] + "</td><td>$"
+							   + total_price + "</td></tr>";
+		}
+		
+		localStorage.setItem( 'entire_cart', products_string );
+		
+		//Have to save the total separately in localSource, so Shipping and Tax can be added to
+		//it on thanks.html.
+		localStorage.setItem( 'TotalWithoutTax', total_without_tax );
+	}
+	// Go to checkout page.
+	window.location.href="checkout.html"; 
+}
+
+/*************Add EmptytheCart_empty()*************/
+function EmptytheCart_empty() //emptys all wnat to just do one
+{
+	if(localStorage.getItem( "cart" ) !== null)
+	{
+		var cart = {};
+		cart = JSON.stringify( cart );
+		localStorage.setItem( "cart", cart );
+	}
+
+	document.getElementById('q1').value = 0;
+	document.getElementById('q2').value = 0;
+	document.getElementById('q3').value = 0;
+	document.getElementById('q4').value = 0;
+	localStorage.setItem( "cart", null );
+	
+	document.getElementById("cartTable").innerHTML = "<tr><td>No Items In Cart</td></tr>";
+}
+
+/***************Add emptyItem***************/
+function emptyItem( product ){
+	if(localStorage.getItem( "cart" ) !== null)
+	{
+		var cart = JSON.parse( localStorage.getItem("cart") );//load the cart
+		delete cart[product];//remove the item
+		cart = JSON.stringify( cart ); //then save
+		localStorage.setItem( "cart", cart );
+		//chekky way
+		location.reload();
+	}
+}
+
+/**********Add Update**********/
+function updateItem (product){
+	if(localStorage.getItem( "cart" ) !== null)
+	{
+		var cart = JSON.parse( localStorage.getItem("cart") );//load the cart
+		cart[product] = parseInt( document.getElementsByName(product)[0].value );
+		cart = JSON.stringify( cart ); //then save
+		localStorage.setItem( "cart", cart );
+		//chekky way
+		location.reload();
+	}
+}
+
+/***************Continue Shopping***************/
+function ContinueShopping()
+{
+	var ContinueShopping = "shop.html";
+
+	location.href = ContinueShopping;
+}
+
+window.onload=checkUser; //setGuest;
+</script>
+		
+</head>
+
+<body>
+<header><center><img src="beedsmore3_thumb900.jpg" width="678" height="151" alt="My Company"/></center></header>
+<nav>
+<form id="form1" name="form1" method="post">
+<p>Choose a page to visit:<br>
+  <select name="select" id="select" onchange="window.location.href=this.value;">
+    <option value="index.html">Home</option>
+	<option value="survey.html">Survey</option>
+    <option value="shop.html">Shop</option>
+    <option value="cart.html" selected="selected">Cart</option>
+ 	<option value="checkout.html">Checkout</option>
+  </select>
+</p>
+<p><strong>Welcome <span id="divGuestArea">Guest</span>!</strong></p>
+</form>
+<form method="GET" action="/htmlform/LoginServlet">
+  <div id="loginInput">
+    <p>Enter your name:<input type="text" name="fName" size="20"></p>
+    </div>
+  <p><input type="button" value="Sign-In" id="signInButton" onclick="updateName()"/></p>
+  
+</form>
+</nav>
+
+<div id="main">
+<h1>Cart</h1>
+<p>Below is the current contents of your shopping cart:</p>
+
+<table id="cartTable" border="1" cellpadding="8">
+<script>showCart();</script>
+</table>
+
+<p><strong>Put a button here to proceed to checkout</strong></p>
+<p><input type="button" value="Go To Checkout" id="ProceedtoCheckoutButton" onclick="checkout()"/>
+  <input type="button" value="Empty the Cart" onClick="EmptytheCart_empty();">
+</p>
+<p><input type="button" value="Back To Shopping" id="ContinueShopping" onclick="ContinueShopping()"/></p>
+
+&nbsp; &nbsp; &nbsp;</form>
+
+<footer><center>
+Copyright © 2016 Beads & More
+</center></footer></div>
+</body>
+</html>

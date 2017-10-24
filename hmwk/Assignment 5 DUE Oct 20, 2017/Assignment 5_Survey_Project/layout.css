@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/*
+ Styles for Survey_Project Layout
+*/
+
+header {
+	height : 150px; /* optionally set an appropriate height for this banner area */
+}   
+
+nav {
+	width : 200px;  /* optionally set an appropriate width for this sidebar area */
+	float : left;   /* must float left or right to allow main content to sit next to it */
+	height: 750px;  /* set a height as needed if main page text is wrapping below sidebar; */
+	text-align: center;
+}
+
+#main {
+	margin-left: 220px; /* Match this to nav's width above to keep content away from nav */	
+}
+
+footer {
+	margin-top: 50px; /* optionally separate copyright from main content by some amount */
+}
+
+.co-photo {
+	float: left;
+	margin: 10px 20px 10px 0px;
+	border: 1px black solid; 
+}
+
+.red{
+	color:red;
+}
+
+#openButton{
+	float: right;
+}
+
+#openButton p{
+	position: relative;
+    top: -25px;
+    left: 45px;
+    transform: rotate(6.5deg);
+}

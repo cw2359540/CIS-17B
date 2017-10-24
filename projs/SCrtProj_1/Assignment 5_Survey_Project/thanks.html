@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Cheryllynn Walsh Final Project Thanks you</title>
+	<link href="layout.css" type="text/css" rel="stylesheet">
+	
+<script type="text/javascript" src="guest-functions.js"></script>
+
+<style>
+ 	body {background-color: #f2f2f2;}
+</style>
+
+<script>
+//window.onload=printInfo;
+
+window.onload=function() { 
+	checkUser();
+	printInfo();
+}
+//caps because it is a standard pratice for constants
+var STATE_TAXES = {"AK":.02,"AL":.09,"AR":.09,"AZ":.08,"CA":.08,"CO":.07,"CT":.06,"DC":.05,"DE":.00,"FL":.06,"GA":.07,"HI":.04,"IA":.07,"ID":.06,"IL":.09,"IN":.07,"KS":.08,"KY":.06,"LA":.09,"MA":.06,"MD":.06,"ME":.05,"MI":.05,"MN":.07,"MO":.08,"MS":.07,"MT":.00,"NC":.07,"ND":.06,"NE":.07,"NH":.00,"NJ":.07,"NM":.07,"NV":.08,"NY":.08,"OH":.07,"OK":.09,"OR":.00,"PA":.06,"RI":.07,"SC":.07,"SD":.06,"TN":.09,"TX":.08,"UT":.07,"VT":.06,"VA":.06,"WA":.09,"WV":.06,"WI":.05,"WY":.05};
+
+function printInfo() {
+	var ThanksContents = localStorage.getItem('Thanks');
+	var ThanksDiv = document.getElementById('Thanks');
+	ThanksDiv.innerHTML = ThanksContents;
+	
+	//Print cart
+	var CartDiv = document.getElementById('cart');
+	CartDiv.style.border = '2px solid black';
+	
+	var CartContents = localStorage.getItem('entire_cart');
+	//alert(CartContents);
+
+	//Print total to products_string.
+	var total_without_tax = parseInt( localStorage.getItem('TotalWithoutTax') );  //Convert string back to number
+	var shipping_string = localStorage.getItem('ShippingCost');
+	// var tax = total_without_tax * 0.06; //Fixed tax
+	// so if sate ca charge 8%
+	var state = localStorage.getItem( 'state' );
+	var tax = total_without_tax * STATE_TAXES[state];
+	var rate = STATE_TAXES[state] * 100;
+	 
+	var total_string = total_without_tax.toFixed(2);
+	CartDiv.innerHTML = "<table border='0'><tr><th>Item #</th><th>Product</th><th>Price</th></tr>" +
+	                    CartContents
+                      + "<tr><td colspan='2'><h4 style='margin:0 0 0 0;text-align:right;'>Total:</h4></td>"
+					  + "<td><h4 style='margin:0 0 0 0;'> $" + total_string
+					  + "</h4></td></tr>"
+					  + "<tr><td colspan='2'><h4 style='margin:0 0 0 0;text-align:right;'>Tax(" + rate.toPrecision(1) + "%):</h4></td>"
+					  + "<td><h4 style='margin:0 0 0 0;'> $" + tax.toFixed(2)
+					  + "</h4></td></tr>"
+                      + "<tr><td colspan='2'><h4 style='margin:0 0 0 0;text-align:right;'>Shipping:</h4></td>"
+					  + "<td><h4 style='margin:0 0 0 0;'> $" +shipping_string
+					  + "</h4></td></tr>"
+                      + "<tr><td colspan='2'><h4 style='text-decoration:underline; margin:0 0 0 0;text-align:right;'>Grand Total:</h4></td>"
+					  + "<td><h4 style='margin:0 0 0 0;'> $"
+					  + ( total_without_tax + parseInt( shipping_string ) + tax ).toFixed(2)
+					  + "</h4></td></tr>";
+
+	/*text-decoration:underline;margin:0 0 0 0;*/
+	
+	CartDiv.innerHTML += "</table>";
+					 
+	//Print shipping info.
+	var ShippingDiv = document.getElementById('Shipping');
+	Shipping.style.border = '6px solid black';   //However you want to format it here
+	
+	var ShippingContents = localStorage.getItem('Shipping');
+	ShippingDiv.style.marginTop = '12px';
+	Shipping.style.border = '2px dashed black';
+	
+	//Don't know how this should look when printed on page.
+	ShippingDiv.innerHTML = "" + ShippingContents + "";
+
+    //Print payment info.
+	var paymentContents = localStorage.getItem('Payment');  //Retrieve payment info
+	var PaymentDiv = document.getElementById('Payment');
+	PaymentDiv.style.marginTop = '12px';
+	PaymentDiv.style.border = '2px solid black';
+	PaymentDiv.innerHTML = "" + paymentContents;
+
+}
+
+/***************simpleCartEmpty()***************/
+function simpleCartEmpty()
+{
+ 	var simpleCart = "cart.html";
+ 
+ 	locatation.href = simpleCart;
+ }
+
+</script>
+
+</head>
+
+<body>
+<header><center><img src="beedsmore3_thumb900.jpg" width="678" height="151" alt="My Company"/></center></header>
+<nav>
+<form id="form1" name="form1" method="post">
+<p>Choose a page to visit:<br>
+  <select name="select" id="select" onchange="window.location.href=this.value;">
+    <option value="index.html">Home</option>
+    <option value="shop.html">Shop</option>
+    <option value="cart.html">Cart</option>
+ 	<option value="checkout.html" selected="selected">Checkout</option>
+  </select>
+</p>
+<p><strong>Welcome <span id="divGuestArea">Guest</span>!</strong></p>
+</form>
+<form method="GET" action="/htmlform/LoginServlet">
+  <div id="loginInput">
+    <p>Enter your name:<input type="text" name="fName" size="20"></p>
+    </div>
+  <p><input type="button" value="Sign-In" id="signInButton" onclick="updateName()"/></p>
+  
+</form>
+</nav>
+
+<div id="main">
+
+<div id="Thanks"></div>
+<p>Here is your order summary:<br /></p>
+<p>
+  <!--Items ordered displayed here-->
+</p>
+<div id="cart"></div>
+
+<!--Shipping info here-->
+<div id="Shipping"></div>
+
+<!--Payment info here-->
+<div id="Payment"></div>
+
+<footer><center>
+Copyright © 2016 Beads & More
+</center></footer>
+</div>
+</body>
+</html>

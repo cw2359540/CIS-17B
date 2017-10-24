@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Use cookie to run servey one time in a browser. for plaform Angular2, SurveyJS Library Example</title>
+    <script src="https://npmcdn.com/zone.js@0.8.17/dist/zone.js"></script>
+    <script src="https://npmcdn.com/core-js/client/shim.min.js"></script>
+    <script src="https://npmcdn.com/rxjs@5.0.0-beta.6/bundles/Rx.umd.js"></script>
+    <script src="https://npmcdn.com/@angular/core@2.0.0-rc.5/bundles/core.umd.js"></script>
+    <script src="https://npmcdn.com/@angular/common@2.0.0-rc.5/bundles/common.umd.js"></script>
+    <script src="https://npmcdn.com/@angular/compiler@2.0.0-rc.5/bundles/compiler.umd.js"></script>
+    <script src="https://npmcdn.com/@angular/platform-browser@2.0.0-rc.5/bundles/platform-browser.umd.js"></script>
+    <script src="https://npmcdn.com/@angular/platform-browser-dynamic@2.0.0-rc.5/bundles/platform-browser-dynamic.umd.js"></script>
+    <script src="https://surveyjs.azureedge.net/0.12.34/survey.angular.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./test.css">
+
+</head>
+<body>
+    <ng-app></ng-app>
+	<h5 class=""><span style="">1. * What car are you driving?</span></h5>
+	<div class="sv_qcbx form-inline"><div class="checkbox" style="margin-right: 0px; display: inline-block; width: 25%;">
+	<label class=""><input type="checkbox" value="None" id="sq_100i" aria-label="1. * What car are you driving?" style="margin-right: 3px;">
+	<span class="checkbox-material"><span class="check"></span></span><span><span style="">None</span></span></label></div>
+	<div class="checkbox" style="margin-right: 0px; display: inline-block; width: 25%;">
+	<label class=""><input type="checkbox" value="Ford" aria-label="1. * What car are you driving?" style="margin-right: 3px;">
+	<span class="checkbox-material"><span class="check"></span></span><span><span style="">Ford</span></span></label></div>
+	<div class="checkbox" style="margin-right: 0px; display: inline-block; width: 25%;"><label class="">
+	<input type="checkbox" value="Vauxhall" aria-label="1. * What car are you driving?" style="margin-right: 3px;">
+	<span class="checkbox-material"><span class="check"></span></span><span><span style="">Vauxhall</span></span>
+	</label></div><div class="checkbox" style="margin-right: 0px; display: inline-block; width: 25%;"><label class="">
+	<input type="checkbox" value="Volkswagen" aria-label="1. * What car are you driving?" style="margin-right: 3px;">
+	<span class="checkbox-material"><span class="check"></span></span><span><span style="">Volkswagen</span></span></label>
+	</div><div class="checkbox" style="margin-right: 0px; display: inline-block; width: 25%;"><label class="">
+	<input type="checkbox" value="Nissan" aria-label="1. * What car are you driving?" style="margin-right: 3px;">
+	<span class="checkbox-material"><span class="check"></span></span><span><span style="">Nissan</span></span>
+	</label></div><div class="checkbox" style="margin-right: 0px; display: inline-block; width: 25%;"><label class="">
+	<input type="checkbox" value="Audi" aria-label="1. * What car are you driving?" style="margin-right: 3px;">
+	<span class="checkbox-material"><span class="check"></span></span><span><span style="">Audi</span></span>
+	</label></div><div class="checkbox" style="margin-right: 0px; display: inline-block; width: 25%;">
+	<label class=""><input type="checkbox" value="Mercedes-Benz" aria-label="1. * What car are you driving?" style="margin-right: 3px;">
+	<span class="checkbox-material"><span class="check"></span></span><span><span style="">Mercedes-Benz</span></span>
+	</label></div><div class="checkbox" style="margin-right: 0px; display: inline-block; width: 25%;"><label class="">
+	<input type="checkbox" value="BMW" aria-label="1. * What car are you driving?" style="margin-right: 3px;">
+	<span class="checkbox-material"><span class="check"></span></span><span><span style="">BMW</span></span></label>
+	</div><div class="checkbox" style="margin-right: 0px; display: inline-block; width: 25%;"><label class="">
+	<input type="checkbox" value="Peugeot" aria-label="1. * What car are you driving?" style="margin-right: 3px;">
+	<span class="checkbox-material"><span class="check"></span></span><span><span style="">Peugeot</span></span>
+	</label></div><div class="checkbox" style="margin-right: 0px; display: inline-block; width: 25%;"><label class="">
+	<input type="checkbox" value="Toyota" aria-label="1. * What car are you driving?" style="margin-right: 3px;">
+	<span class="checkbox-material"><span class="check"></span></span><span><span style="">Toyota</span></span>
+	</label></div><div class="checkbox" style="margin-right: 0px; display: inline-block; width: 25%;"><label class="">
+	<input type="checkbox" value="Citroen" aria-label="1. * What car are you driving?" style="margin-right: 3px;">
+	<span class="checkbox-material"><span class="check"></span></span><span><span style="">Citroen</span></span></label></div></div>
+<div id="surveyResult"></div>
+
+<script type="text/javascript" src="./index.js"></script>
+
+</body>
+</html>

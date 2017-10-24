@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Cheryllynn Walsh Final Project Checkout</title>
+	<link href="layout.css" type="text/css" rel="stylesheet">
+	
+<script type="text/javascript" src="guest-functions.js"></script>
+
+<style>
+ 	body {background-color: #f2f2f2;}
+</style>
+
+<script>
+window.onload=checkUser; //setGuest; // Look, checkUser() is called upon window load. 
+// BUT all the code in <head>.....</head> outside any function 
+
+/**********Complete Payment**************/
+function CompletePayment() {
+	//utility function to remove element from arrays
+	function arrRemove( array, element ){
+		var index = array.indexOf( element );
+		if (index >= 0) {
+		  array.splice( index, 1 );
+		}
+	}
+	// Once the user clicks 'Complete Payment', the page can change to a 'Thanks for your purchase!' page.
+	// You can put order info on that page. I think you would use localStorage to do this.
+	
+	//Save shipping info.
+	var shipping_string = "";  // Initialize empty string
+	
+    //Get shipping info from form here & add to shipping_string.
+	//Add HTML or formatting to shipping_string.
+	var shippingMethod = document.getElementsByName('shipping');
+	shipping_string += "<h3 style='text-decoration:underline;margin:0 0 0 0;'>";
+	if( shippingMethod.item(0).checked ) {
+		shipping_string += "Standard Shipping";
+		shipping_cost = 2;
+	}
+	else if( shippingMethod.item(1).checked ) {
+		shipping_string += "2-Day Shipping";
+		shipping_cost = 5;
+	}
+	else if( shippingMethod.item(2).checked ) {
+		shipping_string += "Overnight Shipping";
+		shipping_cost = 10;
+	}
+	shipping_string += "</h3>";
+	
+	var first_name = document.getElementById("FirstName");
+	var last_name = document.getElementById("LastName");
+	shipping_string += "Name: <span style='font-weight:bold;'>" + first_name.value + " " + last_name.value + "</span><br />";
+
+	//Create a div for formatting shipping info.
+//	 var shippingAddress = "<table><tr><td>Shipping Address: </td><td><span style='font-weight:bold;'>";
+	 var shippingAddress = "<div style='margin-top:1em;'><h3 style='text-decoration:underline;margin:0 0 0 0;'>Shipping Address:</h3>";
+	     shippingAddress += document.getElementById('Address').value + "<br />"
+                         +  document.getElementById('City').value + ", "
+                    	 +  document.getElementById('State2').value  + " " 
+                    	 +  document.getElementById('Zip2').value + "<br />"  
+                    	 +  document.getElementById('email').value + "<br />"  
+                    	 +  document.getElementById('phoneNote').value + "<br />";
+
+     shippingAddress += "</div>";
+	 shipping_string += shippingAddress;
+					   
+/***********paymentMethod***********/ 
+// Starting from here, you have a code OUTSIDE functions. 
+// This means that it will run BEFORE the page is loaded. So getElementById("payment") will NOT work because browser doesn't see it yet.
+// If you placed it before </body> tag OR in window.onload block, it would run after the page is loaded. 
+	var paymentMethod = document.getElementById("payment").value;
+  	var ExpMon= document.getElementById("ExpMon").value;
+  	var ExpYear= document.getElementById("ExpYear").value;
+  	var cardNumber= document.getElementById("cardNumber");
+  	var date = new Date ();
+  	var month = date.getMonth();
+  	var year = date.getFullYear();
+
+	 //Get payment method & save to localStorage (like shipping address).
+	 //Probably don't want to print card number.
+	 var payment_string = "Payment method: <span style='font-weight:bold;'>"
+	 payment_string += paymentMethod;
+	 payment_string += "</span>";
+	 
+	//make an errors array
+	var errors = [];
+
+//If there is nothing in .innerHTML (i.e. it is null), put an empty  string in here so '+=' works.
+//if( ! document.getElementById('receipt').innerHTML ) document.getElementById('receipt').innerHTML = "";
+	
+/*******First Name*******/
+   if( document.getElementById( "FirstName" ).value.length == 0 ) //don't want to be empty. the string, then its empty
+   {
+   	//so if an error with the first
+		document.getElementById("FirstName").style.color='red';
+		document.getElementById("FirstName").style.border='1px solid red';
+		alert("Empty First Name");
+		errors.push( "Empty First Name" );
+		//return;
+	} 
+	else 
+	{
+		document.getElementById("FirstName").style.color='black'; // if its matchs we want to
+		document.getElementById("FirstName").style.border=''; // if its matchs we want to
+	}
+
+/*******Last name*******/
+   if( document.getElementById( "LastName" ).value.length == 0 )
+   {
+   	//so if an error with the last
+		document.getElementById("LastName").style.color='red';
+		document.getElementById("LastName").style.border='1px solid red';
+		alert("Empty Last Name");
+		errors.push( "Empty Last Name" );
+		//return;
+	} 
+	else 
+	{
+		document.getElementById("LastName").style.color='black'; // if its matchs we want to
+		document.getElementById("LastName").style.border=''; // if its matchs we want to
+	}
+
+
+/*************Add EmptytheCart_empty()*************/
+function EmptytheCart_empty() //emptys all wnat to just do one
+{
+	if(localStorage.getItem( "cart" ) !== null)
+	{
+		var cart = {};
+		cart = JSON.stringify( cart );
+		localStorage.setItem( "cart", cart );
+	}
+
+	document.getElementById('q1').value = 0;
+	document.getElementById('q2').value = 0;
+	document.getElementById('q3').value = 0;
+	document.getElementById('q4').value = 0;
+	localStorage.setItem( "cart", null );
+	
+	document.getElementById("cartTable").innerHTML = "<tr><td>No Items In Cart</td></tr>";
+}
+
+
+/***************Continue Shopping***************/
+function ContinueShopping()
+{
+	var ContinueShopping = "shop.html";
+
+	location.href = ContinueShopping;
+}
+
+// currently we would need to search through the array
+// does he want it like this however other things
+// we can change thing to make our life easier can wich picutre or however ok
+
+</script>
+
+</head>
+
+<body>
+<header><center><img src="beedsmore3_thumb900.jpg" width="678" height="151" alt="My Company"/></center></header>
+<nav>
+<form id="form1" name="form1" method="post">
+<p>Choose a page to visit:<br>
+  <select name="select" id="select" onchange="window.location.href=this.value;">
+    <option value="index.html">Home</option>
+	<option value="survey.html">Survey</option>
+    <option value="shop.html">Shop</option>
+    <option value="cart.html">Cart</option>
+ 	<option value="checkout.html" selected="selected">Checkout</option>
+  </select>
+</p>
+<p><strong>Welcome <span id="divGuestArea">Guest</span>!</strong></p>
+</form>
+<form method="GET" action="/htmlform/LoginServlet">
+  <div id="loginInput">
+    <p>Enter your name:<input type="text" name="fName" size="20"></p>
+    </div>
+  <p><input type="button" value="Sign-In" id="signInButton" onclick="updateName()"/></p>
+  
+</form>
+</nav>
+
+<div id="main">
+<h1>Checkout</h1>
+<p>
+	<script>	
+	if( localStorage.getItem( 'cart' ) === "null" ){
+		document.write('<fieldset><tr><td><strong>Your Shopping cart is currently empty!</strong><br /> <br /><strong>We recommend you go straught to our <a href="shop.html">Shopping Page</a> to fill it up now!</strong></td></tr></fieldset>');
+	}
+	</script>
+</p>
+
+<div id="CartContents"></div>
+<p>
+
+<table id="cartTable" border="1" cellpadding="8">
+<script>showCart();</script>
+</table>
+ <p>
+   <input type="button" value="Back To Shopping" id="ContinueShopping" onClick="ContinueShopping()"/>
+  </p>
+ <p><br />
+  <strong>Display Total Amount</strong></p>
+ <fieldset id="step_1">
+        <legend><strong><p>Shipping Method</strong></p></legend>
+        <div id="attendee_1_wrap" class="name_wrap push">
+
+        <input type="radio" id="Standard Shipping" name="shipping" value="Standard Shipping" checked />
+        Standard Shipping ($2)
+        
+        <input type="radio" id="2-DayShipping" name="shipping" value="2-DayShipping" />
+		2-DayShipping ($5)
+        
+		<input type="radio" id="Overnight Shipping" name="shipping" value="Overnight Shipping" />
+		Overnight Shipping ($10)</p>
+</div>
+</fieldset>
+    
+	
+<div id="company_name_wrap"></div>
+
+     <div id="special_accommodations_wrap">
+       <label for="special_accomodations_text">
+</fieldset>
+
+    <p><INPUT onclick="CompletePayment()" type=button value="Complete Payment" name=PaymentButton></p>
+    
+    <p>&nbsp;</p>
+
+<div id='receipt'></div>
+
+<footer><center>
+Copyright © 2016 Beads & More
+</center></footer>
+</div>
+</body>
+</html>

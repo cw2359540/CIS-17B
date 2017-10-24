@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link href="layout.css" type="text/css" rel="stylesheet">
+	
+<style>
+ 	body {background-color: #f2f2f2;}
+</style>
+
+<style>
+.quantity { 
+	width: 55px; 
+}
+</style>
+
+<script type="text/javascript" src="guest-functions.js"></script>
+<script>
+	
+/***************Add updateCart**************/
+function updateCartTotalQ()
+{
+	var qTot = 0;
+	var q;
+	for (var i=1; i<=4; i++) // I think, your cart empties every time because when you call this function, you set ALL products to zeroes!
+	// may be you should update cart values ONLY on click "add to cart"?
+	{
+		q=parsentInt(locatStorage.getItem("q" + i));
+		if(isNaN(q)) { q=0; }
+		qTot += q;
+	}
+	if(qTot==0)
+	{
+		document.getElementById("divCartSummary").inner.HTML = "Your shopping cart is now <strong>empty</strong>!";
+	}
+	else if (qTot==1)
+	{
+		document.getElementById("divCartSummary").innerHTML = "Your Shopping cart currenlty contains <strong> 1 item! </strong>";
+	}
+	else
+	{
+		document.getElementById("diverCartSummary").innerHTML = "Your cart currenty contains <br><strong>" + qTot + "items!</strong>";
+	}
+}
+
+/*************Add updateName*************/
+function updateName()
+{
+	var form = document.forms[1]; // The form we are looking at
+	if( typeof localStorage.fName != "undefined" ){ // If false then there is a name set if true there is not
+		delete localStorage.fName; // Log out
+		// Instead of coping and pasting we can just call the checkuser functuon since it doesnt actually log in or out
+		checkUser();
+	}
+	else{
+		// This is logging in code
+		localStorage["fName"] = form.elements["fName"].value;
+		// Set the new customer's name into local storage and
+		// Redisplay the guest area using "set Guest" function
+		setGuest( form.elements["fName"].value );
+		// Should do it here too
+		checkUser();
+	}
+	// Set the new customer's name into local storage and
+ 	// redisplay the guest area using "set Guest" function
+}
+
+/*************Add simpleCart_shipping()*************/
+function proceedCart_shipping()
+{
+	// here is it! you call add2Cart for all products, even if they are 0! So you reset everything to 0, if 
+	/*if(localStorage.getItem( "cart" ) !== null) 
+	{
+		add2Cart('q1');
+		add2Cart('q2');
+		add2Cart('q3');
+		add2Cart('q4');
+		//so we need to change it so if there is a 0 it removes the entry instead of doing nothing
+		//still want to check that the cart has thing in though
+	}*/
+		window.location.href="cart.html"; //instead of just going to checkout lets make sure we store the items in the cart before they leave? yes
+
+}
+
+/*************Add EmptytheCart_empty()*************/
+function EmptytheCart_empty()
+{
+	if(localStorage.getItem( "cart" ) !== null)
+	{
+		var cart = {};
+		cart = JSON.stringify( cart );
+		localStorage.setItem( "cart", cart );
+	}
+	document.getElementById('q1').value = 0;
+	document.getElementById('q2').value = 0;
+	document.getElementById('q3').value = 0;
+	document.getElementById('q4').value = 0;
+	localStorage.setItem( "cart", null );
+}
+//these functions are different
+function add2Cart(product) // it could be just a number, 1, 2, etc, instead of q1, q2, etc. Then you can easily update "cart" array. Like cart[product] will be cart[1], etc.
+{
+    var cartContents = localStorage.getItem( "cart" ); // to get an item, it should be set first somewhere..
+	// If( localStorage.getItem( "cart" ) === null )  
+	// If the cart is null, it should go here
+    // I  think '!==' means the type is not equal to null & '===' the type is equal to null
+	// It looks like cartContents is literally "null", not just null
+	if( cartContents == "null" || typeof cartContents === 'undefined' )  //If the cart is null, it should go here
+	{ //if doesnt exist
+		var cart = {};
+		value = document.getElementById( product ).value;
+		cart[product] = parseInt( value ); // "product" is q1, q2, etc, whatever user ordered. So how can you say cart[q1]??? it should be cart[1] then
+		// what if you pass 2 arguments (q, 1) , instead of 1 (q1, etc)
+		if( value > 0 ){ //if its more than 0
+			localStorage.setItem( "cart", JSON.stringify( cart ) );
+		}
+		// That would never occur because it is setting it if it doesnt exist in this if
+	} else {
+		var cart = JSON.parse( localStorage.getItem( "cart" ) );
+		value = document.getElementById( product ).value;
+		cart[product] = parseInt( value ); // if product is "q1", then cart[q1] will not work... ahould be cart[1], should be a number in []
+		if( value > 0 ){ //if its more than 0
+			localStorage.setItem( "cart", JSON.stringify( cart ) );
+		}
+		else if ( value == 0 ){
+			delete cart[product]; //delete the product in the cart
+			//then store it	
+			localStorage.setItem( "cart", JSON.stringify( cart ) );	
+		}
+	}
+// Add the indicated product quantity to the cart
+// The updated quantity goes to local storage so
+// the cart page will see it later when visited
+}
+
+function clearCart()
+{
+	localStorage.setItem('q1' , '0');
+	localStorage.setItem('q2' , '0');
+	localStorage.setItem('q3' , '0');
+	localStorage.setItem('q4' , '0');
+	updateCarTotalQ(0);
+
+// Zero out all cart items using local storage
+// so that all pages recognize cart is now empty
+}
+
+/************Add imageHover************/
+function imageHover(){
+
+	console.log( this );
+	this.src="add-to-cart-button2.jpg";
+}
+
+window.onload=checkUser; //setGuest;
+</script>
+		
+</head>
+
+<body>
+<header><center><img src="beedsmore3_thumb900.jpg" width="678" height="151" alt="My Company"/></center></header>
+<nav>
+<form id="form1" name="form1" method="post">
+<p>Choose a page to visit:<br>
+  <select name="select" id="select" onchange="window.location.href=this.value;">
+    <option value="index.html">Home</option>
+	<option value="survey.html">Survey</option>
+    <option value="shop.html" selected="selected">Shop</option>
+    <option value="cart.html">Cart</option>
+    <option value="checkout.html">Checkout</option>
+  </select>
+</p>
+</form>
+
+<p><strong>Welcome <span id="divGuestArea">Guest</span>!</strong></p>
+<form method="GET" action="/htmlform/LoginServlet">
+  <div id="loginInput">
+  <p>Enter your name:<input type="text" name="fName" size="20"></p>
+  </div>
+  <p><input type="button" value="Sign-In" id="signInButton" onclick="updateName()"/></p>
+  
+</form>
+<p>&nbsp;</p>
+
+<div id="divGuestArea">&nbsp;</div>
+</nav>
+
+<div id="main">
+<h1>Shop Your New Jewelry</h1>
+<blockquote>
+  <p> Attention shoppers! If you see what you like -all you have to do is click "Add to Cart' button. If you want more of our products - all you have to do is click <br /> 'Quantity' arrow up until your preferred quantity and click 'Add to Cart' button.</p>
+</blockquote>
+<table border="1" cellspacing="0" cellpadding="6">
+  <tbody>
+    <tr>
+      <td><img src="Earrings 198b.jpg" width="100" height="100" alt="generic product 1"/></td>
+      <td><h3>Peyote Fan Earrings </h3>        <p>Made with miyuki and fresh water pearls and silver loops. Very durable and available in different colors and natural stones.</p></td>
+      <td>Price:<br>$80.00</td>
+      <td>
+        <label for="q1">Quantity:<br></label>
+        <input type="number" name="q1" id="q1" class="quantity" value="0"></td>
+      <td><img src="add-to-cart-button1.gif" width="150" height="36" alt="add to cart button" onmouseout="this.src='add-to-cart-button1.gif';" onmouseover="this.src='add-to-cart-button2.jpg';" onclick="add2Cart('q1')" production_1/></td>
+    </tr>
+    <tr>
+      <td><img src="rings.jpg" width="100" height="100" alt="generic product 2"/></td>
+      <td><h3>Blue and Bright pink Hugs and Kisses ring.</h3>
+        <p>It is great when you want a matching ring. Available in your color choice and size.<br>
+        </p></td>
+      <td>Price:<br>$25.00</td>
+      <td><label for="q2">Quantity:<br></label>
+        <input type="number" name="q2" id="q2" class="quantity" value="0"></td>
+      <td><img src="add-to-cart-button1.gif" width="150" height="36" alt="add to cart button" onmouseout="this.src='add-to-cart-button1.gif';" onmouseover="this.src='add-to-cart-button2.jpg';" onclick="add2Cart('q2')" /></td>
+    </tr>
+    <tr>
+      <td><img src="crystal_lace_4.jpg" width="132" height="132" alt="generic product 3"/></td>
+      <td><h3>Crystal Lace Necklace</h3>
+        <p>Beautiful necklace made with very small elegant diamond shape beads.
+        <h5><em> *Plan to include one with matching ear rings. Wow!</em></h5></p></td>
+      <td>Price:<br>$120.00</td>
+      <td><label for="q3">Quantity:<br></label>
+        <input type="number" name="q3" id="q3" class="quantity" value="0"></td>
+      <td><img src="add-to-cart-button1.gif" width="150" height="36" alt="add to cart button" onmouseout="this.src='add-to-cart-button1.gif';" onmouseover="this.src='add-to-cart-button2.jpg';" onclick="add2Cart('q3')" /></td>
+    </tr>
+    <tr>
+      <td><img src="pattern-2.jpg" width="107" height="100" alt="generic product 4"/></td>
+      <td><h3>Bracelet Monaco</h3> <p>This is a new pattern of beautiful polygon tile beads. It is perfect match for any occassion,</p></td>
+      <td>Price:<br>$60.00</td>
+      <td><label for="q4">Quantity:<br></label>
+        <input type="number" name="q4" id="q4" class="quantity" value="0"></td>
+      <td><img src="add-to-cart-button1.gif" width="150" height="36" alt="add to cart button" onmouseout="this.src='add-to-cart-button1.gif';" onmouseover="this.src='add-to-cart-button2.jpg';" onclick="add2Cart('q4')" /></td>
+    </tr>
+    <tr>
+      <td colspan="5" align="right"><form><input type="button" value="Update & Go to Cart" onclick="proceedCart_shipping();">&nbsp; &nbsp; &nbsp;<br> <br>
+	  <!--When you click the proceed button, proceedCart_shipping function is called ...-->
+      <input type="button" value="Empty the Cart" onclick="EmptytheCart_empty();">&nbsp; &nbsp; &nbsp;</form> 
+      </td>
+      </tr>
+  </tbody>
+</table>
+<footer><center>
+Copyright © 2017 Beads & More
+</center></footer>
+</div>
+</body>
+</html>

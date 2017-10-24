@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Cheryllynn Walsh Survey</title>
+	<link href="layout.css" type="text/css" rel="stylesheet">
+	
+<script type="text/javascript" src="guest-functions.js"></script>
+    
+<style>
+ 	body {background-color: #f2f2f2;}
+</style>
+
+<script>
+window.onload=checkUser; //setGuest;
+</script>
+	
+</head>
+
+<body>
+<header><center><img src="beedsmore3_thumb900.jpg" width="678" height="151" alt="My Company"/></center></header>
+
+<div id="openButton" onClick="location.href = 'shop.html';">
+    <img src="open sign.jpg" alt="open sign" width="300" height="300" align="right"/>
+    <p>Push open sign to begin shopping.</p>
+</div>
+
+
+<nav>
+<form id="form1" name="form1" method="post">
+<p>Choose a page to visit:<br>
+  <select name="select" id="select" onchange="window.location.href=this.value;">
+    <option value="index.html" selected="selected">Home</option>
+	<option value="survey.html">Survey</option>
+    <option value="shop.html">Shop</option>
+    <option value="cart.html">Cart</option>
+ 	<option value="checkout.html">Checkout</option>
+  </select>
+</p>
+</form>
+
+<p><strong>Welcome <span id="divGuestArea">Guest</span>!</strong></p>
+<form method="GET" action="/htmlform/LoginServlet">
+  <div id="loginInput">
+  <p>Enter your name:<input type="text" name="fName" size="20"></p>
+  </div>
+  <p><input type="button" value="Sign-In" id="signInButton" onclick="updateName()"/></p>
+  
+</form>
+<p>&nbsp;</p>
+
+
+</nav>
+
+<div id="main">
+<h1>Home</h1>
+<p>My company, Beads and More began with a homework project when I was in high school in 1998.</p>
+<p><img src="il_570xN.172824600.jpg" class="co-photo" width="200" height="200" alt="Generic company stock photo"/>It all started when I began making bead jewelry as a hobby.</p>
+
+<p>All of our jewelry are handmade with the best quality materials. Our business has grown over the years and special thanks to our customers for being satisfied with our products. Now, we have the  website, so we can get more customers. Our goals are to provide a fine quality jewelry and happy customers. Please, take a look at what we have and you can order from the website.</p>
+<h1>About us</h1>
+  <p>There was a homework assignment in my junior year of high  school about business. I did not know what to do. My mother and her friend  were learning to string bead necklaces. They showed me how to string one bead at a time with different colors and shapes of beads. It was very simple but I began to like it. I made a few of them for the homework.</p>
+  <p><br />
+    Beading was fun to do so I took a class to learn more. I learned to do the peyote and string the  beads in different patterns. The hobby grew to make different designs of necklace. Then I learned to make earrings, bracelets, and rings.</p>
+  <p><br/ >
+    Some of my friends liked them and asked if I could make one for them. I did that and sold some to my friends. Then I put some pictures on Craigslist and sold a few. I wanted to have my own web site. So learn how set up my own web site and it just grew to be this online store. I try to make this a fun and safe shopping for you. <br />
+    Thank you.</p>
+  
+  <footer><center>
+Copyright © 2017 Beads & More
+</center></footer>
+</div>
+</body>
+</html>

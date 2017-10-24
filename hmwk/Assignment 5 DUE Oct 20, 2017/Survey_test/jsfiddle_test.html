@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Test your JavaScript, CSS, HTML or CoffeeScript online with JSFiddle code editor.">
+    <meta name="keywords" content="online javascript editor, testing javascript online, online ide, online code editor, html, css, coffeescript, scss online editor">
+    <meta name="author" content="JSFiddle">
+    <meta name="copyright" content="share alike">
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+
+    
+      <meta name="robots" content="index, follow">
+      <meta name="googlebot" content="index, follow">
+	  
+<fieldset class="column right">
+  <div class="window top" id="panel_css" data-panel_type="scss">
+    <textarea id="id_code_css" rows="10" cols="40" name="code_css">body {
+  background-color: #fff;
+  
+  .btn-green {
+    background-color: #1ab394;
+    color: #fff;
+    border-radius: 3px;
+
+    &amp;:hover, &amp;:focus {
+      background-color: #18a689;
+      color: #fff;
+    }
+  }
+  
+  .my-rating {
+    font-size: 12px;
+  }
+  
+  .panel-footer {
+      background-color: #fff;
+      text-align: right;
+  }
+}
+</textarea>
+    <a href="#" class="windowLabel" data-panel="css">
+      <span class="label">CSS</span><i class="bts bt-gear"></i>
+    </a>
+  </div>
+  <div class="handler handler_horizontal"></div>
+  <div id="result" class="window bottom">
+    <iframe name="result" sandbox="allow-forms allow-scripts allow-same-origin allow-modals allow-popups" allowfullscreen frameBorder="0"  src="//fiddle.jshell.net/surveyjs/hpdnnd5c/show/"></iframe>
+    
+  </div>
+  <div class="shim"></div>
+</fieldset>
+
+<div class="windowSettings html">
+  <h3>Language</h3>
+<div class="selectCont">
+  <select name="panel_html" class='panelChoice' id="panel_html_choice" disabled="disabled" data-panel_id="id_code_html" data-panel="html">
+    
+      <option data-mime-type="text/html" value="0" selected>HTML</option>
+    
+  </select>
+  <label for="js_lib"><i class="bts bt-angle-down"></i></label>
+</div> <!-- /selectCont -->
+
+<h3>Doctype</h3>
+<div class="selectCont">
+  <select name="doctype">
+    
+      <option id="dtd_XHTML 1.0 Strict" value="1">XHTML 1.0 Strict</option>
+    
+      <option id="dtd_XHTML 1.0 Transitional" value="2">XHTML 1.0 Transitional</option>
+    
+      <option selected id="dtd_HTML 5" value="3">HTML 5</option>
+    
+      <option id="dtd_HTML 4.01 Strict" value="4">HTML 4.01 Strict</option>
+    
+      <option id="dtd_HTML 4.01 Transitional" value="5">HTML 4.01 Transitional</option>
+    
+      <option id="dtd_HTML 4.01 Frameset" value="6">HTML 4.01 Frameset</option>
+    
+  </select>
+  <label for="doctype"><i class="bts bt-angle-down"></i></label>
+</div>
+
+<h3>Body tag</h3>
+<p>
+  <label>
+    <input id="id_body_tag" type="text" name="body_tag" maxlength="255" />
+  </label>
+</p>
+
+</div> <!-- /windowSettings -->
+
+<div class="windowSettings js">
+  
+
+
+<h3>Language</h3>
+<div class="selectCont">
+  <select name="panel_js" class="panelChoice" id="panel_js_choice" data-panel_id="id_code_js" data-panel="js">
+    
+      <option data-mime-type="text/javascript" value="0" selected>JavaScript</option>
+    
+      <option data-mime-type="text/x-coffeescript" value="1">CoffeeScript</option>
+    
+      <option data-mime-type="application/javascript;version=1.7" value="2">JavaScript 1.7</option>
+    
+      <option data-mime-type="text/babel" value="3">Babel + JSX</option>
+    
+      <option data-mime-type="text/typescript" value="4">TypeScript</option>
+    
+  </select>
+  <label for="js_lib"><i class="bts bt-angle-down"></i></label>
+</div> <!-- /selectCont -->
+
+<h3>Frameworks &amp; Extensions</h3>
+
+  
+    
+<div class="selectCont">
+  <select name="js_lib" id="js_lib">
+    
+    <optgroup label="AngularJS">
+      
+        <option value="281" >AngularJS 2.0.0-alpha.47</option>
+      
+        <option value="283" >AngularJS 1.4.8</option>
+      
+        <option value="180" >AngularJS 1.2.1</option>
+      
+        <option value="137" >AngularJS 1.1.1</option>
+      
+        
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="Bonsai">
+      
+        <option value="120" >Bonsai 0.4.1</option>
+      
+    </optgroup>
+    
+    <optgroup label="Brick">
+      
+        <option value="176" >Brick edge</option>
+      
+    </optgroup>
+    
+    <optgroup label="CreateJS">
+      
+        <option value="279" >CreateJS 2015.05.21</option>
+      
+        <option value="170" >CreateJS 2013.09.25</option>
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="D3">
+      
+        <option value="134" >D3 3.x</option>
+      
+    </optgroup>
+    
+    <optgroup label="Dojo">
+      
+        <option value="87" >Dojo (nightly)</option>
+      
+        <option value="356" >Dojo 1.12.2</option>
+      
+        <option value="358" >Dojo 1.11.4</option>
+      
+        <option value="360" >Dojo 1.10.8</option>
+      
+        
+      
+        
+      
+        
+      
+        <option value="362" >Dojo 1.9.11</option>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        <option value="364" >Dojo 1.8.14</option>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        <option value="366" >Dojo 1.7.12</option>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        <option value="368" >Dojo 1.6.5</option>
+      
+        
+      
+        
+      
+        
+      
+        <option value="370" >Dojo 1.5.6</option>
+      
+        
+      
+        
+      
+        
+      
+        <option value="372" >Dojo 1.4.8</option>
+      
+        
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="Ember">
+      
+        <option value="190" >Ember (latest)</option>
+      
+        
+      
+        
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="Enyo">
+      
+        <option value="115" >Enyo (nightly)</option>
+      
+        <option value="299" >Enyo 2.7.0</option>
+      
+        <option value="238" >Enyo 2.5.1</option>
+      
+        <option value="214" >Enyo 2.4.0</option>
+      
+        <option value="145" >Enyo 2.2.0</option>
+      
+        <option value="121" >Enyo 2.1</option>
+      
+        <option value="116" >Enyo 2.0.1</option>
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="ExtJS">
+      
+        <option value="338" >ExtJS 6.2.0</option>
+      
+        <option value="256" >ExtJS 5.1.0</option>
+      
+        <option value="258" >ExtJS 5.0.0</option>
+      
+        <option value="147" >ExtJS 4.2.0</option>
+      
+        <option value="80" >ExtJS 4.1.1</option>
+      
+        <option value="107" >ExtJS 4.1.0</option>
+      
+        
+      
+        <option value="109" >ExtJS 3.4.0</option>
+      
+        <option value="23" >ExtJS 3.1.0</option>
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="FabricJS">
+      
+        <option value="378" >FabricJS 1.7.15</option>
+      
+        <option value="342" >FabricJS 1.7.7</option>
+      
+        
+      
+        <option value="250" >FabricJS 1.5.0</option>
+      
+        
+      
+        
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="Glow">
+      
+        
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="Inferno">
+      
+        <option value="336" >Inferno 1.0.0-beta9</option>
+      
+    </optgroup>
+    
+    <optgroup label="jQuery">
+      
+        
+      
+        
+      
+        <option value="46" >jQuery (edge)</option>
+      
+        <option value="376" >jQuery 3.2.1</option>
+      
+        
+      
+        <option value="333" >jQuery 3.1.1</option>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        <option value="319" >jQuery 2.2.4</option>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        <option value="248" >jQuery 2.1.3</option>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        <option value="131" >jQuery 1.9.1</option>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="jQuery Slim">
+      
+        <option value="335" >jQuery Slim 3.1.1 Slim</option>
+      
+        <option value="323" >jQuery Slim 3.1.0 Slim</option>
+      
+        <option value="313" >jQuery Slim 3.0.0 Slim</option>
+      
+    </optgroup>
+    
+    <optgroup label="JSBlocks">
+      
+        <option value="252" >JSBlocks (edge)</option>
+      
+    </optgroup>
+    
+    <optgroup label="jTypes">
+      
+        <option value="165" >jTypes 2.1.0</option>
+      
+    </optgroup>
+    
+    <optgroup label="KineticJS">
+      
+        <option value="139" >KineticJS 4.3.1</option>
+      
+        <option value="124" >KineticJS 4.0.5</option>
+      
+    </optgroup>
+    
+    <optgroup label="Knockout.js">
+      
+        <option value="277" >Knockout.js 3.4.0</option>
+      
+        <option value="172" >Knockout.js 3.0.0</option>
+      
+        <option value="163" >Knockout.js 2.3.0</option>
+      
+        <option value="122" >Knockout.js 2.2.1</option>
+      
+        <option value="117" >Knockout.js 2.1.0</option>
+      
+        <option value="104" >Knockout.js 2.0.0</option>
+      
+    </optgroup>
+    
+    <optgroup label="Lo-Dash">
+      
+        <option value="167" >Lo-Dash 2.2.1</option>
+      
+    </optgroup>
+    
+    <optgroup label="Minified">
+      
+        <option value="164" >Minified 1.0 beta1</option>
+      
+    </optgroup>
+    
+    <optgroup label="MithrilJS">
+      
+        <option value="273" >MithrilJS 0.2.0</option>
+      
+    </optgroup>
+    
+    <optgroup label="Mootools">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        <option value="59" >Mootools (nightly)</option>
+      
+        <option value="327" >Mootools 1.6.0 (compat)</option>
+      
+        <option value="325" >Mootools 1.6.0</option>
+      
+        <option value="329" >Mootools 1.5.2 (compat)</option>
+      
+        <option value="263" >Mootools 1.5.2</option>
+      
+        
+      
+        
+      
+        <option value="216" >Mootools 1.5.1</option>
+      
+        
+      
+        <option value="208" >Mootools 1.5.0</option>
+      
+        <option value="96" >Mootools 1.4.5 (compat)</option>
+      
+        <option value="95" >Mootools 1.4.5</option>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        <option value="63" >Mootools 1.3.2 (compat)</option>
+      
+        <option value="62" >Mootools 1.3.2</option>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="No-Library">
+      
+        <option value="11" selected="selected">No-Library (pure JS)</option>
+      
+    </optgroup>
+    
+    <optgroup label="OpenUI5">
+      
+        <option value="271" >OpenUI5 (latest, mobile)</option>
+      
+    </optgroup>
+    
+    <optgroup label="Paper.js">
+      
+        <option value="158" >Paper.js 0.22</option>
+      
+    </optgroup>
+    
+    <optgroup label="Pixi">
+      
+        <option value="331" >Pixi 4.0.0</option>
+      
+        <option value="315" >Pixi 3.0.11</option>
+      
+    </optgroup>
+    
+    <optgroup label="Processing.js">
+      
+        <option value="206" >Processing.js 1.4.7</option>
+      
+        <option value="135" >Processing.js 1.4.1</option>
+      
+        <option value="81" >Processing.js 1.3.6</option>
+      
+        <option value="67" >Processing.js 1.2.3</option>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="Prototype">
+      
+        
+      
+        <option value="265" >Prototype 1.7.3</option>
+      
+        
+      
+        
+      
+        <option value="4" >Prototype 1.6.1.0</option>
+      
+    </optgroup>
+    
+    <optgroup label="qooxdoo">
+      
+        <option value="126" >qooxdoo 2.1</option>
+      
+        <option value="127" >qooxdoo 2.0.3</option>
+      
+    </optgroup>
+    
+    <optgroup label="RactiveJS">
+      
+        
+      
+        
+      
+        <option value="287" >RactiveJS 0.7.3</option>
+      
+    </optgroup>
+    
+    <optgroup label="Raphael">
+      
+        <option value="76" >Raphael 2.1.0</option>
+      
+        <option value="36" >Raphael 1.5.2 (min)</option>
+      
+        <option value="30" >Raphael 1.4</option>
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="React">
+      
+        <option value="285" >React 0.14.3</option>
+      
+        <option value="192" >React 0.9.0</option>
+      
+        <option value="184" >React 0.8.0</option>
+      
+        <option value="166" >React 0.4.0</option>
+      
+        <option value="159" >React 0.3.2</option>
+      
+    </optgroup>
+    
+    <optgroup label="RightJS">
+      
+        <option value="136" >RightJS 2.3.1</option>
+      
+        <option value="45" >RightJS 2.1.1</option>
+      
+    </optgroup>
+    
+    <optgroup label="Shipyard">
+      
+        <option value="99" >Shipyard (nightly)</option>
+      
+        <option value="105" >Shipyard 0.2</option>
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="svg.js">
+      
+        <option value="346" >svg.js 2.5.0</option>
+      
+        <option value="348" >svg.js 2.4.0</option>
+      
+        <option value="350" >svg.js 2.3.7</option>
+      
+        <option value="352" >svg.js 2.2.5</option>
+      
+        <option value="269" >svg.js 2.1.1</option>
+      
+        <option value="354" >svg.js 2.0.5</option>
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="The X Toolkit">
+      
+        <option value="106" >The X Toolkit edge</option>
+      
+    </optgroup>
+    
+    <optgroup label="Thorax">
+      
+        <option value="174" >Thorax 2.0.0rc6</option>
+      
+        <option value="143" >Thorax 2.0.0rc3</option>
+      
+    </optgroup>
+    
+    <optgroup label="Three.js">
+      
+        <option value="82" >Three.js r54</option>
+      
+    </optgroup>
+    
+    <optgroup label="Underscore">
+      
+        <option value="267" >Underscore 1.8.3</option>
+      
+        <option value="160" >Underscore 1.4.4</option>
+      
+        <option value="133" >Underscore 1.4.3</option>
+      
+        <option value="111" >Underscore 1.3.3</option>
+      
+    </optgroup>
+    
+    <optgroup label="Vue">
+      
+        <option value="236" >Vue (edge)</option>
+      
+        <option value="344" >Vue 2.2.1</option>
+      
+        <option value="289" >Vue 1.0.12</option>
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="WebApp Install">
+      
+        <option value="142" >WebApp Install 0.1</option>
+      
+    </optgroup>
+    
+    <optgroup label="YUI">
+      
+        
+      
+        <option value="230" >YUI 3.17.2</option>
+      
+        <option value="204" >YUI 3.16.0</option>
+      
+        <option value="182" >YUI 3.14.0</option>
+      
+        <option value="153" >YUI 3.10.1</option>
+      
+        
+      
+        <option value="130" >YUI 3.8.0</option>
+      
+        <option value="123" >YUI 3.7.3</option>
+      
+        <option value="118" >YUI 3.6.0</option>
+      
+        <option value="102" >YUI 3.5.0</option>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        <option value="9" >YUI 2.8.0r4</option>
+      
+        
+      
+    </optgroup>
+    
+    <optgroup label="Zepto">
+      
+        <option value="90" >Zepto 1.0rc1</option>
+      
+    </optgroup>
+    
+  </select>
+  <label for="js_lib"><i class="bts bt-angle-down"></i></label>
+</div>
+
+<ul id="js_dependency">
+  
+
+</ul>
+
+  
+
+
+<h3>Load type</h3>
+<div class="selectCont">
+  <select name="js_wrap" id="id_js_wrap">
+<option value="l" selected="selected">onLoad</option>
+<option value="d">onDomready</option>
+<option value="h">No wrap - in &lt;head&gt;</option>
+<option value="b">No wrap - in &lt;body&gt;</option>
+</select>
+  <label for="js_wrap"><i class="bts bt-angle-down"></i></label>
+</div>
+
+
+  <h3>Framework &lt;script> attribute</h3>
+  <p class="libraryTagAttributes">
+    <label>
+      <input id="id_js_lib_option" type="text" name="js_lib_option" maxlength="255" placeholder='ie. data-type=""' value="" />
+    </label>
+  </p>
+
+
+<script type="text/javascript">
+  window.addEvent('load', function() {
+    $('js_lib').addEvent('change', function() {
+      mooshell.loadDependencies(this.value);
+    })
+    if ($('library_group')) $('library_group').addEvent('change', function() {
+      mooshell.loadLibraryVersions(this.value);
+    })
+  });
+</script>
+
+</div> <!-- /windowSettings -->
+
+<div class="windowSettings css">
+  <h3>Language</h3>
+<div class="selectCont">
+  <select name="panel_css" class='panelChoice' id="panel_css_choice" data-panel_id="id_code_css" data-panel="css">
+    
+      <option data-mime-type="text/x-scss" value="0">CSS</option>
+    
+      <option data-mime-type="text/x-scss" value="1" selected>SCSS</option>
+    
+  </select>
+  <label for="js_lib"><i class="bts bt-angle-down"></i></label>
+</div> <!-- /selectCont -->
+
+<h3>Options</h3>
+<p id="normalize_check">
+  <label class="checkboxCont"><input type="checkbox" name="normalize_css" id="id_normalize_css" /><span class="checkbox"><i class="bts bt-check"></i></span> Normalized CSS</label>
+</p>
+
+</div> <!-- /windowSettings -->
+
+        </div>
+      
+    </form>
+
+    
+
+<script>
+  TogetherJSConfig_enableAnalytics = true;
+  TogetherJSConfig_cloneClicks = "#run, .toggler";
+  TogetherJSConfig_toolName = "Collaboration"
+</script>
+<script defer src="https://togetherjs.com/togetherjs.js"></script>
+
+
+    
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Code",
+      "name": "Material Example",
+      
+      "description": "Product Feedback Survey Example",
+      
+      "url": "//jsfiddle.net/surveyjs/hpdnnd5c/",
+      "dateCreated": "",
+      
+        
+        "author": {
+          "@type": "Person",
+          "name": "surveyjs",
+          
+          
+          "image": "//www.gravatar.com/avatar/c0de4f8786b805d899653a666c723c1c/?default=&amp;s=80"
+        },
+      
+      "codeSampleType": [
+        {
+          "@type": "SoftwareSourceCode",
+          "programmingLanguage": "javascript",
+          "text": "$.material.init();
+
+var json = {
+    title: &quot;Product Feedback Survey Example&quot;,
+    showProgressBar: &quot;top&quot;,
+    pages: [{
+        questions: [{
+            type: &quot;matrix&quot;,
+            name: &quot;Quality&quot;,
+            title: &quot;Please indicate if you agree or disagree with the following statements&quot;,
+            columns: [{
+                value: 1,
+                text: &quot;Strongly Disagree&quot;
+            }, {
+                value: 2,
+                text: &quot;Disagree&quot;
+            }, {
+                value: 3,
+                text: &quot;Neutral&quot;
+            }, {
+                value: 4,
+                text: &quot;Agree&quot;
+            }, {
+                value: 5,
+                text: &quot;Strongly Agree&quot;
+            }],
+            rows: [{
+                value: &quot;affordable&quot;,
+                text: &quot;Product is affordable&quot;
+            }, {
+                value: &quot;does what it claims&quot;,
+                text: &quot;Product does what it claims&quot;
+            }, {
+                value: &quot;better then others&quot;,
+                text: &quot;Product is better than other products on the market&quot;
+            }, {
+                value: &quot;easy to use&quot;,
+                text: &quot;Product is easy to use&quot;
+            }]
+        }]
+    }, {
+    	questions: [{
+          type: &quot;checkbox&quot;,
+          name: &quot;words&quot;,
+          title: &quot;Which of the words would you use to describe our products?&quot;,
+          isRequired: true,
+          colCount: 2,
+          choices: [&quot;Reliable&quot;, &quot;High quality&quot;, &quot;Useful&quot;, &quot;Unique&quot;, &quot;Good&quot;, &quot;Overpriced&quot;, &quot;Impractical&quot;, &quot;Ineffective&quot;, &quot;Poor quality&quot;, &quot;Unreliable&quot;, &quot;Not for me&quot;]
+      }]
+    }, {
+        questions: [{
+            type: &quot;rating&quot;,
+            name: &quot;satisfaction&quot;,
+            title: &quot;How satisfied are you with the Product?&quot;,
+            mininumRateDescription: &quot;Not Satisfied&quot;,
+            maximumRateDescription: &quot;Completely satisfied&quot;
+        }, {
+            type: &quot;rating&quot;,
+            name: &quot;recommend friends&quot;,
+            visibleIf: &quot;{satisfaction} &gt; 3&quot;,
+            title: &quot;How likely are you to recommend the Product to a friend or co-worker?&quot;,
+            mininumRateDescription: &quot;Will not recommend&quot;,
+            maximumRateDescription: &quot;I will recommend&quot;
+        }, {
+            type: &quot;comment&quot;,
+            name: &quot;suggestions&quot;,
+            title: &quot;What would make you more satisfied with the Product?&quot;,
+        }]
+    }, {
+        questions: [{
+            type: &quot;radiogroup&quot;,
+            name: &quot;price to competitors&quot;,
+            title: &quot;Compared to our competitors, do you feel the Product is&quot;,
+            choices: [&quot;Less expensive&quot;, &quot;Priced about the same&quot;, &quot;More expensive&quot;, &quot;Not sure&quot;]
+        }, {
+            type: &quot;radiogroup&quot;,
+            name: &quot;price&quot;,
+            title: &quot;Do you feel our current price is merited by our product?&quot;,
+            choices: [&quot;correct|Yes, the price is about right&quot;,
+                &quot;low|No, the price is too low for your product&quot;,
+                &quot;high|No, the price is too high for your product&quot;
+            ]
+        }]
+    }, {
+        questions: [{
+            type: &quot;multipletext&quot;,
+            name: &quot;pricelimit&quot;,
+            title: &quot;What is the... &quot;,
+            items: [{
+                name: &quot;mostamount&quot;,
+                title: &quot;The maximum amount you would ever pay for a product like ours&quot;
+            }, {
+                name: &quot;leastamount&quot;,
+                title: &quot;The minimum amount you would feel comfortable paying&quot;
+            }]
+        }, {
+            type: &quot;text&quot;,
+            name: &quot;email&quot;,
+            title: &quot;Thank you for taking our survey. Your survey is almost complete, please enter your email address in the box below if you wish to participate in our drawing, then press the &#39;Submit&#39; button.&quot;
+        }]
+    }]
+};
+
+Survey.defaultBootstrapMaterialCss.navigationButton = &quot;btn btn-green&quot;;
+Survey.defaultBootstrapMaterialCss.rating.item = &quot;btn btn-default my-rating&quot;;
+Survey.Survey.cssType = &quot;bootstrapmaterial&quot;;
+
+var survey = new Survey.Model(json);
+
+survey.onComplete.add(function(result) {
+	document.querySelector(&#39;#result&#39;).innerHTML = &quot;result: &quot; + JSON.stringify(result.data);
+});
+
+survey.render(&quot;surveyElement&quot;);"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "programmingLanguage": "html",
+          "text": "&lt;div id=&quot;surveyElement&quot;&gt;&lt;/div&gt;
+
+&lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "programmingLanguage": "scss",
+          "text": "body {
+  background-color: #fff;
+  
+  .btn-green {
+    background-color: #1ab394;
+    color: #fff;
+    border-radius: 3px;
+
+    &amp;:hover, &amp;:focus {
+      background-color: #18a689;
+      color: #fff;
+    }
+  }
+  
+  .my-rating {
+    font-size: 12px;
+  }
+  
+  .panel-footer {
+      background-color: #fff;
+      text-align: right;
+  }
+}
+"
+        }
+      ]
+    }
+  </script>
+
+
+
+    
+      <script type="text/javascript">
+        window.addEvent('load', function() {
+          
+        });
+      </script>
+    
+  </body>
+</html>

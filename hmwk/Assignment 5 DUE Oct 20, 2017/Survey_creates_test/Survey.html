@@ -1,0 +1,384 @@
+<style type="text/css">
+    body {
+  background-color: #fff; }
+  body .btn-green {
+    background-color: #1ab394;
+    color: #fff;
+    border-radius: 3px; }
+    body .btn-green:hover, body .btn-green:focus {
+      background-color: #18a689;
+      color: #fff; }
+  body .my-rating {
+    font-size: 12px; }
+    body .panel-footer {
+      background-color: #fff;
+      text-align: right; }
+
+  </style>
+
+  <title>Material Example by surveyjs</title>
+  
+   <h5 data-bind="visible: question.survey.questionTitleLocation == 'top', css: question.survey.css.question.title">
+            <!-- ko template: { name: 'survey-string', data: question.locTitle } -->
+    <!-- ko ifnot: hasHtml -->
+   
+   
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+        </h5>
+		<span style="position: static;" data-bind="text: koRenderedHtml">2. * Which of the words would you use to describe our products?</span>
+		</h5>
+		
+		<div role="alert" data-bind="visible: koErrors().length > 0, foreach: { data: koErrors, as: 'error'}, css: question.survey.css.error.root" class="alert alert-danger" style="display: none;"></div>
+		
+		<form data-bind="css: question.survey.css.checkbox.root" class="form-inline">
+        <!-- ko foreach: { data: question.koVisibleChoices, as: 'item', afterRender: question.koAfterRender}  --><div data-bind="style:{display: 'inline-block', width: question.koWidth, 'margin-right': question.colCount == 0 ? '5px': '0px'}, css: question.survey.css.checkbox.item" class="checkbox" style="display: inline-block; width: 50%; margin-right: 0px;">
+            <label data-bind="css: question.survey.css.checkbox.item" class="checkbox">
+                <input type="checkbox" data-bind="attr: {name: question.name, value: item.value, id: ($index() == 0) ? question.inputId : ''}, checked: question.koValue, enable: !question.koIsReadOnly()" name="words" value="Reliable" id="sq_101i">
+                <span class="checkbox-material"><span class="check"></span></span>
+                <!-- ko template: { name: 'survey-string', data: item.locText } -->
+    <!-- ko ifnot: hasHtml -->
+    <span style="position: static;" data-bind="text: koRenderedHtml">Reliable</span>
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+            </label>
+            <div data-bind="visible: question.hasOther &amp;&amp; ($index() == question.koVisibleChoices().length-1)" style="display: none;">
+                <div data-bind="template: { name: 'survey-comment', data: {'question': question, 'visible': question.koOtherVisible } }, css: question.survey.css.checkbox.other">
+    <!-- ko ifnot: question.koIsReadOnly -->
+    <input data-bind="value: $data.question.koComment, visible: $data.visible, css: question.survey.css.question.comment" class="form-control" style="display: none;">
+    <!-- /ko -->
+    <!-- ko if: question.koIsReadOnly --><!-- /ko -->
+</div>
+            </div>
+        </div><div data-bind="style:{display: 'inline-block', width: question.koWidth, 'margin-right': question.colCount == 0 ? '5px': '0px'}, css: question.survey.css.checkbox.item" class="checkbox" style="display: inline-block; width: 50%; margin-right: 0px;">
+            <label data-bind="css: question.survey.css.checkbox.item" class="checkbox">
+                <input type="checkbox" data-bind="attr: {name: question.name, value: item.value, id: ($index() == 0) ? question.inputId : ''}, checked: question.koValue, enable: !question.koIsReadOnly()" name="words" value="High quality" id="">
+                <span class="checkbox-material"><span class="check"></span></span>
+                <!-- ko template: { name: 'survey-string', data: item.locText } -->
+    <!-- ko ifnot: hasHtml -->
+    <span style="position: static;" data-bind="text: koRenderedHtml">High quality</span>
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+            </label>
+            <div data-bind="visible: question.hasOther &amp;&amp; ($index() == question.koVisibleChoices().length-1)" style="display: none;">
+                <div data-bind="template: { name: 'survey-comment', data: {'question': question, 'visible': question.koOtherVisible } }, css: question.survey.css.checkbox.other">
+    <!-- ko ifnot: question.koIsReadOnly -->
+    <input data-bind="value: $data.question.koComment, visible: $data.visible, css: question.survey.css.question.comment" class="form-control" style="display: none;">
+    <!-- /ko -->
+    <!-- ko if: question.koIsReadOnly --><!-- /ko -->
+</div>
+            </div>
+        </div><div data-bind="style:{display: 'inline-block', width: question.koWidth, 'margin-right': question.colCount == 0 ? '5px': '0px'}, css: question.survey.css.checkbox.item" class="checkbox" style="display: inline-block; width: 50%; margin-right: 0px;">
+            <label data-bind="css: question.survey.css.checkbox.item" class="checkbox">
+                <input type="checkbox" data-bind="attr: {name: question.name, value: item.value, id: ($index() == 0) ? question.inputId : ''}, checked: question.koValue, enable: !question.koIsReadOnly()" name="words" value="Useful" id="">
+                <span class="checkbox-material"><span class="check"></span></span>
+                <!-- ko template: { name: 'survey-string', data: item.locText } -->
+    <!-- ko ifnot: hasHtml -->
+    <span style="position: static;" data-bind="text: koRenderedHtml">Useful</span>
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+            </label>
+            <div data-bind="visible: question.hasOther &amp;&amp; ($index() == question.koVisibleChoices().length-1)" style="display: none;">
+                <div data-bind="template: { name: 'survey-comment', data: {'question': question, 'visible': question.koOtherVisible } }, css: question.survey.css.checkbox.other">
+    <!-- ko ifnot: question.koIsReadOnly -->
+    <input data-bind="value: $data.question.koComment, visible: $data.visible, css: question.survey.css.question.comment" class="form-control" style="display: none;">
+    <!-- /ko -->
+    <!-- ko if: question.koIsReadOnly --><!-- /ko -->
+</div>
+            </div>
+        </div><div data-bind="style:{display: 'inline-block', width: question.koWidth, 'margin-right': question.colCount == 0 ? '5px': '0px'}, css: question.survey.css.checkbox.item" class="checkbox" style="display: inline-block; width: 50%; margin-right: 0px;">
+            <label data-bind="css: question.survey.css.checkbox.item" class="checkbox">
+                <input type="checkbox" data-bind="attr: {name: question.name, value: item.value, id: ($index() == 0) ? question.inputId : ''}, checked: question.koValue, enable: !question.koIsReadOnly()" name="words" value="Unique" id="">
+                <span class="checkbox-material"><span class="check"></span></span>
+                <!-- ko template: { name: 'survey-string', data: item.locText } -->
+    <!-- ko ifnot: hasHtml -->
+    <span style="position: static;" data-bind="text: koRenderedHtml">Unique</span>
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+            </label>
+            <div data-bind="visible: question.hasOther &amp;&amp; ($index() == question.koVisibleChoices().length-1)" style="display: none;">
+                <div data-bind="template: { name: 'survey-comment', data: {'question': question, 'visible': question.koOtherVisible } }, css: question.survey.css.checkbox.other">
+    <!-- ko ifnot: question.koIsReadOnly -->
+    <input data-bind="value: $data.question.koComment, visible: $data.visible, css: question.survey.css.question.comment" class="form-control" style="display: none;">
+    <!-- /ko -->
+    <!-- ko if: question.koIsReadOnly --><!-- /ko -->
+</div>
+            </div>
+        </div><div data-bind="style:{display: 'inline-block', width: question.koWidth, 'margin-right': question.colCount == 0 ? '5px': '0px'}, css: question.survey.css.checkbox.item" class="checkbox" style="display: inline-block; width: 50%; margin-right: 0px;">
+            <label data-bind="css: question.survey.css.checkbox.item" class="checkbox">
+                <input type="checkbox" data-bind="attr: {name: question.name, value: item.value, id: ($index() == 0) ? question.inputId : ''}, checked: question.koValue, enable: !question.koIsReadOnly()" name="words" value="Good" id="">
+                <span class="checkbox-material"><span class="check"></span></span>
+                <!-- ko template: { name: 'survey-string', data: item.locText } -->
+    <!-- ko ifnot: hasHtml -->
+    <span style="position: static;" data-bind="text: koRenderedHtml">Good</span>
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+            </label>
+            <div data-bind="visible: question.hasOther &amp;&amp; ($index() == question.koVisibleChoices().length-1)" style="display: none;">
+                <div data-bind="template: { name: 'survey-comment', data: {'question': question, 'visible': question.koOtherVisible } }, css: question.survey.css.checkbox.other">
+    <!-- ko ifnot: question.koIsReadOnly -->
+    <input data-bind="value: $data.question.koComment, visible: $data.visible, css: question.survey.css.question.comment" class="form-control" style="display: none;">
+    <!-- /ko -->
+    <!-- ko if: question.koIsReadOnly --><!-- /ko -->
+</div>
+            </div>
+        </div><div data-bind="style:{display: 'inline-block', width: question.koWidth, 'margin-right': question.colCount == 0 ? '5px': '0px'}, css: question.survey.css.checkbox.item" class="checkbox" style="display: inline-block; width: 50%; margin-right: 0px;">
+            <label data-bind="css: question.survey.css.checkbox.item" class="checkbox">
+                <input type="checkbox" data-bind="attr: {name: question.name, value: item.value, id: ($index() == 0) ? question.inputId : ''}, checked: question.koValue, enable: !question.koIsReadOnly()" name="words" value="Overpriced" id="">
+                <span class="checkbox-material"><span class="check"></span></span>
+                <!-- ko template: { name: 'survey-string', data: item.locText } -->
+    <!-- ko ifnot: hasHtml -->
+    <span style="position: static;" data-bind="text: koRenderedHtml">Overpriced</span>
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+            </label>
+            <div data-bind="visible: question.hasOther &amp;&amp; ($index() == question.koVisibleChoices().length-1)" style="display: none;">
+                <div data-bind="template: { name: 'survey-comment', data: {'question': question, 'visible': question.koOtherVisible } }, css: question.survey.css.checkbox.other">
+    <!-- ko ifnot: question.koIsReadOnly -->
+    <input data-bind="value: $data.question.koComment, visible: $data.visible, css: question.survey.css.question.comment" class="form-control" style="display: none;">
+    <!-- /ko -->
+    <!-- ko if: question.koIsReadOnly --><!-- /ko -->
+</div>
+            </div>
+        </div><div data-bind="style:{display: 'inline-block', width: question.koWidth, 'margin-right': question.colCount == 0 ? '5px': '0px'}, css: question.survey.css.checkbox.item" class="checkbox" style="display: inline-block; width: 50%; margin-right: 0px;">
+            <label data-bind="css: question.survey.css.checkbox.item" class="checkbox">
+                <input type="checkbox" data-bind="attr: {name: question.name, value: item.value, id: ($index() == 0) ? question.inputId : ''}, checked: question.koValue, enable: !question.koIsReadOnly()" name="words" value="Impractical" id="">
+                <span class="checkbox-material"><span class="check"></span></span>
+                <!-- ko template: { name: 'survey-string', data: item.locText } -->
+    <!-- ko ifnot: hasHtml -->
+    <span style="position: static;" data-bind="text: koRenderedHtml">Impractical</span>
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+            </label>
+            <div data-bind="visible: question.hasOther &amp;&amp; ($index() == question.koVisibleChoices().length-1)" style="display: none;">
+                <div data-bind="template: { name: 'survey-comment', data: {'question': question, 'visible': question.koOtherVisible } }, css: question.survey.css.checkbox.other">
+    <!-- ko ifnot: question.koIsReadOnly -->
+    <input data-bind="value: $data.question.koComment, visible: $data.visible, css: question.survey.css.question.comment" class="form-control" style="display: none;">
+    <!-- /ko -->
+    <!-- ko if: question.koIsReadOnly --><!-- /ko -->
+</div>
+            </div>
+        </div><div data-bind="style:{display: 'inline-block', width: question.koWidth, 'margin-right': question.colCount == 0 ? '5px': '0px'}, css: question.survey.css.checkbox.item" class="checkbox" style="display: inline-block; width: 50%; margin-right: 0px;">
+            <label data-bind="css: question.survey.css.checkbox.item" class="checkbox">
+                <input type="checkbox" data-bind="attr: {name: question.name, value: item.value, id: ($index() == 0) ? question.inputId : ''}, checked: question.koValue, enable: !question.koIsReadOnly()" name="words" value="Ineffective" id="">
+                <span class="checkbox-material"><span class="check"></span></span>
+                <!-- ko template: { name: 'survey-string', data: item.locText } -->
+    <!-- ko ifnot: hasHtml -->
+    <span style="position: static;" data-bind="text: koRenderedHtml">Ineffective</span>
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+            </label>
+            <div data-bind="visible: question.hasOther &amp;&amp; ($index() == question.koVisibleChoices().length-1)" style="display: none;">
+                <div data-bind="template: { name: 'survey-comment', data: {'question': question, 'visible': question.koOtherVisible } }, css: question.survey.css.checkbox.other">
+    <!-- ko ifnot: question.koIsReadOnly -->
+    <input data-bind="value: $data.question.koComment, visible: $data.visible, css: question.survey.css.question.comment" class="form-control" style="display: none;">
+    <!-- /ko -->
+    <!-- ko if: question.koIsReadOnly --><!-- /ko -->
+</div>
+            </div>
+        </div><div data-bind="style:{display: 'inline-block', width: question.koWidth, 'margin-right': question.colCount == 0 ? '5px': '0px'}, css: question.survey.css.checkbox.item" class="checkbox" style="display: inline-block; width: 50%; margin-right: 0px;">
+            <label data-bind="css: question.survey.css.checkbox.item" class="checkbox">
+                <input type="checkbox" data-bind="attr: {name: question.name, value: item.value, id: ($index() == 0) ? question.inputId : ''}, checked: question.koValue, enable: !question.koIsReadOnly()" name="words" value="Poor quality" id="">
+                <span class="checkbox-material"><span class="check"></span></span>
+                <!-- ko template: { name: 'survey-string', data: item.locText } -->
+    <!-- ko ifnot: hasHtml -->
+    <span style="position: static;" data-bind="text: koRenderedHtml">Poor quality</span>
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+            </label>
+            <div data-bind="visible: question.hasOther &amp;&amp; ($index() == question.koVisibleChoices().length-1)" style="display: none;">
+                <div data-bind="template: { name: 'survey-comment', data: {'question': question, 'visible': question.koOtherVisible } }, css: question.survey.css.checkbox.other">
+    <!-- ko ifnot: question.koIsReadOnly -->
+    <input data-bind="value: $data.question.koComment, visible: $data.visible, css: question.survey.css.question.comment" class="form-control" style="display: none;">
+    <!-- /ko -->
+    <!-- ko if: question.koIsReadOnly --><!-- /ko -->
+</div>
+            </div>
+        </div><div data-bind="style:{display: 'inline-block', width: question.koWidth, 'margin-right': question.colCount == 0 ? '5px': '0px'}, css: question.survey.css.checkbox.item" class="checkbox" style="display: inline-block; width: 50%; margin-right: 0px;">
+            <label data-bind="css: question.survey.css.checkbox.item" class="checkbox">
+                <input type="checkbox" data-bind="attr: {name: question.name, value: item.value, id: ($index() == 0) ? question.inputId : ''}, checked: question.koValue, enable: !question.koIsReadOnly()" name="words" value="Unreliable" id="">
+                <span class="checkbox-material"><span class="check"></span></span>
+                <!-- ko template: { name: 'survey-string', data: item.locText } -->
+    <!-- ko ifnot: hasHtml -->
+    <span style="position: static;" data-bind="text: koRenderedHtml">Unreliable</span>
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+            </label>
+            <div data-bind="visible: question.hasOther &amp;&amp; ($index() == question.koVisibleChoices().length-1)" style="display: none;">
+                <div data-bind="template: { name: 'survey-comment', data: {'question': question, 'visible': question.koOtherVisible } }, css: question.survey.css.checkbox.other">
+    <!-- ko ifnot: question.koIsReadOnly -->
+    <input data-bind="value: $data.question.koComment, visible: $data.visible, css: question.survey.css.question.comment" class="form-control" style="display: none;">
+    <!-- /ko -->
+    <!-- ko if: question.koIsReadOnly --><!-- /ko -->
+</div>
+            </div>
+        </div><div data-bind="style:{display: 'inline-block', width: question.koWidth, 'margin-right': question.colCount == 0 ? '5px': '0px'}, css: question.survey.css.checkbox.item" class="checkbox" style="display: inline-block; width: 50%; margin-right: 0px;">
+            <label data-bind="css: question.survey.css.checkbox.item" class="checkbox">
+                <input type="checkbox" data-bind="attr: {name: question.name, value: item.value, id: ($index() == 0) ? question.inputId : ''}, checked: question.koValue, enable: !question.koIsReadOnly()" name="words" value="Not for me" id="">
+                <span class="checkbox-material"><span class="check"></span></span>
+                <!-- ko template: { name: 'survey-string', data: item.locText } -->
+    <!-- ko ifnot: hasHtml -->
+    <span style="position: static;" data-bind="text: koRenderedHtml">Not for me</span>
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+            </label>
+            <div data-bind="visible: question.hasOther &amp;&amp; ($index() == question.koVisibleChoices().length-1)" style="display: none;">
+                <div data-bind="template: { name: 'survey-comment', data: {'question': question, 'visible': question.koOtherVisible } }, css: question.survey.css.checkbox.other">
+    <!-- ko ifnot: question.koIsReadOnly -->
+    <input data-bind="value: $data.question.koComment, visible: $data.visible, css: question.survey.css.question.comment" class="form-control" style="display: none;">
+    <!-- /ko -->
+    <!-- ko if: question.koIsReadOnly --><!-- /ko -->
+</div>
+            </div>
+        </div><!-- /ko -->
+    </form>
+	
+	<div data-bind="visible: question.hasComment" style="display: none;">
+            <div data-bind="text:question.commentText">Other (describe)</div>
+            <div data-bind="template: { name: 'survey-comment', data: {'question': question, 'visible': true } }">
+    <!-- ko ifnot: question.koIsReadOnly -->
+    <input data-bind="value: $data.question.koComment, visible: $data.visible, css: question.survey.css.question.comment" class="form-control">
+    <!-- /ko -->
+    <!-- ko if: question.koIsReadOnly --><!-- /ko -->
+</div>
+        </div>
+		
+		<h5 data-bind="visible: question.survey.questionTitleLocation == 'bottom', css: question.survey.css.question.title" style="display: none;">
+            <!-- ko template: { name: 'survey-string', data: question.locTitle } -->
+    <!-- ko ifnot: hasHtml -->
+    <span style="position: static;" data-bind="text: koRenderedHtml">2. * Which of the words would you use to describe our products?</span>
+    <!-- /ko -->
+    <!-- ko if: hasHtml --><!-- /ko -->
+<!-- /ko -->
+        </h5>
+		
+		</div>
+		
+		</div>
+		</div>
+		
+		</div>
+		
+		<div data-bind="visible: koIsNavigationButtonsShowing, css: css.footer" class="panel-footer">
+            <input type="button" data-bind="value: pagePrevText, click: prevPage, visible: !koIsFirstPage(), css: cssNavigationPrev" value="Previous" class="btn btn-green sv_prev_btn" style="">
+            <input type="button" data-bind="value: pageNextText, click: nextPage, visible: !koIsLastPage(), css: cssNavigationNext" value="Next" class="btn btn-green sv_next_btn">
+            <input type="button" data-bind="value: completeText, click: completeLastPage, visible: koIsLastPage() &amp;&amp; isEditMode, css: cssNavigationComplete" value="Complete" class="btn btn-green sv_complete_btn" style="display: none;">
+        </div>
+
+<script type='text/javascript'>//<![CDATA[
+window.onload=function(){
+$.material.init();
+
+var json = {
+
+    	questions: [{
+          type: "checkbox",
+          name: "words",
+          title: "Which of the words would you use to describe our products?",
+          isRequired: true,
+          colCount: 2,
+          choices: ["Reliable", "High quality", "Useful", "Unique", "Good", "Overpriced", "Impractical", "Ineffective", "Poor quality", "Unreliable", "Not for me"]
+      }]
+    }, {
+        questions: [{
+            type: "rating",
+            name: "satisfaction",
+            title: "How satisfied are you with the Product?",
+            mininumRateDescription: "Not Satisfied",
+            maximumRateDescription: "Completely satisfied"
+        }, {
+            type: "rating",
+            name: "recommend friends",
+            visibleIf: "{satisfaction} > 3",
+            title: "How likely are you to recommend the Product to a friend or co-worker?",
+            mininumRateDescription: "Will not recommend",
+            maximumRateDescription: "I will recommend"
+        }, {
+            type: "comment",
+            name: "suggestions",
+            title: "What would make you more satisfied with the Product?",
+        }]
+    }, {
+        questions: [{
+            type: "radiogroup",
+            name: "price to competitors",
+            title: "Compared to our competitors, do you feel the Product is",
+            choices: ["Less expensive", "Priced about the same", "More expensive", "Not sure"]
+        }, {
+            type: "radiogroup",
+            name: "price",
+            title: "Do you feel our current price is merited by our product?",
+            choices: ["correct|Yes, the price is about right",
+                "low|No, the price is too low for your product",
+                "high|No, the price is too high for your product"
+            ]
+        }]
+    }, {
+        questions: [{
+            type: "multipletext",
+            name: "pricelimit",
+            title: "What is the... ",
+            items: [{
+                name: "mostamount",
+                title: "The maximum amount you would ever pay for a product like ours"
+            }, {
+                name: "leastamount",
+                title: "The minimum amount you would feel comfortable paying"
+            }]
+        }, {
+            type: "text",
+            name: "email",
+            title: "Thank you for taking our survey. Your survey is almost complete, please enter your email address in the box below if you wish to participate in our drawing, then press the 'Submit' button."
+        }]
+    }]
+};
+
+Survey.defaultBootstrapMaterialCss.navigationButton = "btn btn-green";
+Survey.defaultBootstrapMaterialCss.rating.item = "btn btn-default my-rating";
+Survey.Survey.cssType = "bootstrapmaterial";
+
+var survey = new Survey.Model(json);
+
+survey.onComplete.add(function(result) {
+	document.querySelector('#result').innerHTML = "result: " + JSON.stringify(result.data);
+});
+
+survey.render("surveyElement");
+}//]]> 
+
+</script>
+
+  
+</head>
+
+<body>
+  <div id="surveyElement"></div>
+
+<div id="result"></div>
+
+  
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "hpdnnd5c"
+    }], "*")
+  }
+</script>
+
+</body>
+
+</html>
