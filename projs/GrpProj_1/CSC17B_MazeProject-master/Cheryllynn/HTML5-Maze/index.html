@@ -9,6 +9,7 @@
 	<p>
         Welcome!<br />        
         This is a Maze Game Project created by Cheryllynn, Shane, Cay, and Colleen</a>.
+		<?php include './tester.php';?>
     </p>
 	<canvas width="616" height="556" id="mazecanvas"></canvas></center>
     <script>
@@ -160,5 +161,8 @@
         window.addEventListener("keydown", moveRect, true);
         createTimer(120); // 2 minutes
     </script>
+	
+	</br>
+	<center><button type="button" id="press_up" onclick="window.location='index.html'">Next</button></br></center>
 </body>
 </html>

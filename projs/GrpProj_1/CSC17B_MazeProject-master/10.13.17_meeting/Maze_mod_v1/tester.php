@@ -116,9 +116,13 @@
         </script>
         <div id="next" align="center">
             <button type="button" id="press_up" onclick="isWin(Cursor-X_size)">Cursor_up </button></br>
-            <button type="button"  id="press_left" onclick="isWin(Cursor-1)">Cursor_lft</button>
-            <button type="button"  id="press_right" onclick="isWin(Cursor+1)">Cursor_rgt</button></br>
+            <button type="button" id="press_left" onclick="isWin(Cursor-1)">Cursor_lft</button>
+            <button type="button" id="press_right" onclick="isWin(Cursor+1)">Cursor_rgt</button></br>
             <button type="button" id="press_down" onclick="isWin(Cursor+X_size)">Cursor_dwn</button>
+			
+			</br>
+			</br>
+		<center><button type="button" id="press_up" onclick="window.location='index.html'">Next</button></br></center>
         </div>
     </body>
 </html>
