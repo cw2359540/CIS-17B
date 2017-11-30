@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Maze Game Project Contact Us</title>
+	<link href="layout.css" type="text/css" rel="stylesheet">
+	
+<script type="text/javascript" src="guest-functions.js"></script>
+
+<style>
+ 	body {background-color: #F0F8FF;}
+</style>
+
+<script>
+
+/*******First Name*******/
+   if( document.getElementById( "FirstName" ).value.length == 0 ) //don't want to be empty. the string, then its empty
+   {
+   	//so if an error with the first
+		document.getElementById("FirstName").style.color='red';
+		document.getElementById("FirstName").style.border='1px solid red';
+		alert("Empty First Name");
+		errors.push( "Empty First Name" );
+		//return;
+	} 
+	else 
+	{
+		document.getElementById("FirstName").style.color='black'; // if its matchs we want to
+		document.getElementById("FirstName").style.border=''; // if its matchs we want to
+	}
+
+/*******Last name*******/
+   if( document.getElementById( "LastName" ).value.length == 0 )
+   {
+   	//so if an error with the last
+		document.getElementById("LastName").style.color='red';
+		document.getElementById("LastName").style.border='1px solid red';
+		alert("Empty Last Name");
+		errors.push( "Empty Last Name" );
+		//return;
+	} 
+	else 
+	{
+		document.getElementById("LastName").style.color='black'; // if its matchs we want to
+		document.getElementById("LastName").style.border=''; // if its matchs we want to
+	}
+
+   
+   /*******E-mail*******/
+   if( !validateForm( document.getElementById ( "email" ).value ) )
+   // Since the isValidAccountNo( txtaccount.value ); does the testing of the regex and returns true if it matches
+	{
+		//so if an erro with the phone
+		document.getElementById("email").style.color='red';
+		document.getElementById("email").style.border='1px solid red';
+		alert("Not a valid e-mail address");
+		errors.push( "Not a valid e-mail address" );
+		//return;
+	} 
+	else 
+	{
+		document.getElementById("email").style.color='black'; // if its matchs we want to
+		document.getElementById("email").style.border=''; // if its matchs we want to
+	}
+
+   
+  //Make the 'thank you' & save to localStorage.
+	if (ExpMon.selectedIndex === 0){
+		//instead of just alerting lets add this to the array
+    	alert("Please select the month");
+		errors.push( "Please select the month" );
+	    //return false; // return to WHERE?
+	}/// nice catch you grrr
+	if (ExpYear.selectedIndex === 0){
+    	alert("Please select the year");
+	    //return false;
+	}
+	if (year> ExpYear || (year === ExpYear && month >= ExpMon)){
+    	alert("The expiry date is before today's date. Please select a valid expiry date");
+	    // return false;
+	}
+  	//cardNumber is now the entire input field , not just the value.
+	if (cardNumber.value.length!=16  || isNaN(cardNumber.value)){
+    	alert("Please enter 16 numbers for your credit card");
+		errors.push( "Please enter 16 numbers for your credit card" );
+        cardNumber.focus();
+		cardNumber.style.color='red';
+		cardNumber.style.border='1px solid red';
+        //      return false;
+     }else{
+		cardNumber.style.color='black'; // if its matchs we want to
+		cardNumber.style.border=''; // if its matchs we want to 
+	 }
+	 
+	 if( !isValidPhoneNo( document.getElementById ( "phoneNote" ).value ) )
+	// Since the isValidAccountNo( txtaccount.value ); does the testing of the regex and returns true if it matches
+	{
+		//so if an erro with the phone
+		document.getElementById("phoneNote").style.color='red';
+		document.getElementById("phoneNote").style.border='1px solid red';
+		alert("Invalid Phone format");
+		errors.push( "Invalid Phone format" );
+		//return;
+	} 
+	else 
+	{
+		document.getElementById("phoneNote").style.color='black'; // if its matchs we want to
+		document.getElementById("phoneNote").style.border=''; // if its matchs we want to
+	}
+	//Add other info to shipping_string here.
+	
+	
+	// This should only run when you have no error right
+	if( errors.length == 0 ){
+		//Store to localStorage.
+		localStorage.setItem( 'Shipping', shipping_string );
+		localStorage.setItem( 'ShippingCost', shipping_cost );
+		//localStorage.setItem( 'Shipping', shipping_string );
+		localStorage.setItem( 'Payment', payment_string );  //Save to localStorage called a nonbreaking space
+		var thanks_string ="<br/><strong>Thank you for paying with " + paymentMethod + ",&nbsp;" + first_name.value + "!</strong><br />";
+		localStorage.setItem( 'Thanks',  thanks_string );
+	  	document.getElementById('receipt').innerHTML +=  thanks_string;
+		
+		
+		localStorage.setItem( 'state', document.getElementById('State2').value );
+		// what 
+		//would want to clear the cart here
+		EmptytheCart_empty();
+		window.location.href="thanks.html";
+	}
+	
+	// alert( JSON.stringify( errors ) );
+
+// May be, all this should go inside completePayment??
+// it's just it says "Please enter 16 digits..." as soon as the page is loaded, before I ever entered anything
+// And if all this is in CompletePayment(), nothing will happen until I press button!
+	
+}
+
+/**************validateZip******************/
+function validateZip(x){
+	var regex = /[0-9]{5}(-[0-9]{4})?/
+	if(x.match(regex)) 
+	{
+	  return true;
+	} 
+  	else return false;
+  }
+
+/**************validateForm******************/
+function validateForm(x) {
+	//gonna pass it in
+    //var x = document.forms["myForm"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        return false;
+    }
+	return true;
+}
+
+/*************isValidPhoneNO****************/
+function isValidPhoneNo(PhoneNo) {
+	document.getElementById("phoneNote").style.color='black';
+  var regExp = /^\(?\d{3}\)?-?\s?\d{3}-\d{4}$/;
+  // I would do this way:
+  if(PhoneNo.match(regExp)) 
+	{
+	  return true;
+	} 
+  	else return false;
+  }
+
+/**********var products**********/
+var products=[];
+products["q1"] = {name: "Peyote Fan Earrings", description : "Earrings", price : "80.00"};
+products["q2"] = {name: "Blue and Bringht pink Hugs and Kisses ring", description : "Rings", price : "25.00"};
+products["q3"] = {name: "Crystal Lace", description : "Necklace", price : "120.00"};
+products["q4"] = {name: "Bracelet Monaco", description : "Bracelet", price : "60.00"};
+
+/************Add out************/
+function out( x ){ document.write( x ); } //cause that is 2 much typing
+function showCart()
+{
+	//so know we need to print out the cart
+	//lets get teh cart
+	if( localStorage.getItem( 'cart' ) !== null ){
+		//print the cart	
+		var cart = JSON.parse( localStorage.getItem("cart") );
+		var overall_total_price = 0;
+		document.write('<tr><th>Quantity</th><th>Update</th><th>Description</th><th>Price</th><th>Delete</th>');
+		for(item in cart ){
+			// So now we can easly get the names and prices without having to search through the whole array
+			
+			var quantity = cart[item];
+			var price_per_unit = products[item].price;
+			var total_price = quantity * price_per_unit;   // Total price of one particular item
+			overall_total_price += total_price;   // Add total_price to overall_total_price while it is still a number
+			total_price = total_price.toFixed(2);  // This turns total_price from a number into a string
+			while( total_price.length < 15 ) { // Right-align total_price
+			  total_price = " " + total_price;
+			}
+
+			var taxes = overall_total_price * .0885;
+			var total_with_tax = overall_total_price + taxes;
+
+			// So lets make it into a table
+			out( "<tr><td>" );// Already have total price so just need to add the unit price
+			out( "<input name='" + item + "' value='" + cart[item] + "' style='width:30px;'/></td><td>" + "<input type='image' src='button_update_cart.gif' onclick=\"updateItem('" + item + "')\"></td><td>" + products[item]["name"] + "</td><td> $" + total_price + "</td><td><input type='image' src='small_delete.gif' onclick=\"emptyItem('" + item + "')\">"); // to get the number stored 
+			out( "</td></tr>" );
+		}
+		
+	     overall_total_price = overall_total_price.toFixed(2); //Turn overall_total_price into a string with 2 decimals
+		document.write('<tr><td colspan="4" style="border-width:0px; text-align: right;"><strong>Sub-Total: $</strong><strong>' + overall_total_price + '</strong></td></tr>');
+	}else{
+		document.write('<tr><td>No Items In Cart</td></tr>');
+}
+	//window.location.href = "thanks.html";  //This doesn't exist yet.
+}
+
+/***************Continue Shopping***************/
+function ContinueShopping()
+{
+	var ContinueShopping = "shop.html";
+
+	location.href = ContinueShopping;
+}
+
+// currently we would need to search through the array
+// does he want it like this however other things
+// we can change thing to make our life easier can wich picutre or however ok
+
+/*************Add EmptytheCart_empty()*************/
+function EmptytheCart_empty()
+{
+	if(localStorage.getItem( "cart" ) !== null)
+	{
+		var cart = {};
+		cart = JSON.stringify( cart );
+		localStorage.setItem( "cart", cart );
+	}
+
+	/*document.getElementById('q1').value = 0;
+	document.getElementById('q2').value = 0;
+	document.getElementById('q3').value = 0;
+	document.getElementById('q4').value = 0;*/
+	delete localStorage["cart"];
+	
+	document.getElementById("cartTable").innerHTML = "<tr><td>No Items In Cart</td></tr>";
+}
+
+/***************Add emptyItem***************/
+function emptyItem( product ){
+	if(localStorage.getItem( "cart" ) !== null)
+	{
+		var cart = JSON.parse( localStorage.getItem("cart") );//load the cart
+		delete cart[product];//remove the item
+		cart = JSON.stringify( cart ); //then save
+		localStorage.setItem( "cart", cart );
+		//chekky way
+		location.reload();
+	}
+}
+
+/**********Add Update**********/
+function updateItem (product){
+	if(localStorage.getItem( "cart" ) !== null)
+	{
+		var cart = JSON.parse( localStorage.getItem("cart") );//load the cart
+		cart[product] = parseInt( document.getElementsByName(product)[0].value );
+		cart = JSON.stringify( cart ); //then save
+		localStorage.setItem( "cart", cart );
+		//chekky way
+		location.reload();
+	}
+  }
+</script>
+
+</head>
+
+<body>
+
+<nav>
+<form id="form1" name="form1" method="post">
+  <div id="main-nav">
+		<center>
+		<a href="#home"><img src="home.jpg"></img></a>
+		<a href="#chars"><img src="chars.jpg"></img></a>
+		<a href="#gmInfo"><img src="gmInfo.jpg"></img></a>
+		<a href="#cntct"><img src="cntct.jpg"></img></a>
+		</center>
+	</div>
+</p>
+
+  
+</form>
+</nav>
+
+<div id="main">
+<h1>Contact Us</h1>
+<p>
+	<script>	
+	if( localStorage.getItem( 'cart' ) === "null" ){
+		document.write('<fieldset><tr><td><strong>Your Shopping cart is currently empty!</strong><br /> <br /><strong>We recommend you go straught to our <a href="shop.html">Shopping Page</a> to fill it up now!</strong></td></tr></fieldset>');
+	}
+	</script>
+</p>
+
+<div id="CartContents"></div>
+<p>
+
+<table id="cartTable" border="1" cellpadding="8">
+<script>showCart();</script>
+</table>
+ 
+ <p><br />
+  <strong>Maze Game Project</strong></p>
+ 
+    
+	<fieldset id="step_1">
+    <div align="right" class="alert red forward">* Required information *</div>
+    <legend><strong>Contact Us</strong><br /></legend>
+    <div id= "attendee_2_wrap" class="name_wrap_pusch">
+    
+    <p>
+    <label for="FirstName">
+           First Name: 
+    </label>
+    <input type="text" id="FirstName" class="name_input">
+    </p>
+    <p>            <!-- for things that are in the same line you have to seperate them with a close p tag and opening since their are in p tag-->
+    <label for="LastName">
+           Last Name:
+    </label>
+        <input type="text" id="LastName" class="name_input" ></input>
+    </p>
+
+</p>
+
+<p><label for="email">E-mail:</label>
+   <input type="email" name="email" id="email" placeholder="Your email.."><span class="alert red">*</span>
+</p>
+
+<p>
+  <label for="Phone">Phone Number: </label><input name="Phone" id="phoneNote" placeholder="Your phone number.." type="text" value="" size="16" maxlength="13" /><span id="phoneNote"> (use "555-555-5555" format)</span><span class="alert red">*</span></p>
+</div>
+     </fieldset>
+
+    <p><INPUT onclick="CompletePayment()" type=button value="Complete Payment" name=PaymentButton></p>
+    
+    <p>&nbsp;</p>
+
+<div id='receipt'></div>
+
+<footer><center>
+Copyright © 2017 
+</center></footer>
+</div>
+</body>
+</html>
